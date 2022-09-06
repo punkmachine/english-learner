@@ -69,5 +69,6 @@ module.exports = {
     'vue/require-prop-types': 'error', // требует указания типа пропса обязательно
     'vue/no-static-inline-styles': 'error', // запрещает использовать inline-style
     'vue/no-unused-refs': 'warn', // предупреждает о не используемых refs
+    'vue/multi-word-component-names': 'off',
   }
 }
