@@ -4,6 +4,7 @@
 		permanent
 		width="250"
 	>
+		<!-- TODO: Надо исправить выделение активным классом при клике -->
 		<v-list>
 			<v-list-item
 				:prepend-avatar="'./img/logo.png'"
@@ -15,6 +16,7 @@
 
 		<v-divider />
 
+		<!-- TODO: Надо исправить выделение активным классом при клике на другой роут. -->
 		<v-list
 			density="compact"
 			nav

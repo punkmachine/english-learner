@@ -22,7 +22,7 @@ const routes = [
 		name: 'dictionary',
 		component: () => import(/* webpackChunkName: "dictionary" */ '../pages/DictionaryPage.vue')
 	}
-]
+];
 
 const router = createRouter({
 	history: createWebHistory(process.env.BASE_URL),
