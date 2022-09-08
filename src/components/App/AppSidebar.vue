@@ -8,6 +8,8 @@
 			<v-list-item
 				:prepend-avatar="'./img/logo.png'"
 				title="English Learner"
+				link
+				to="/"
 			/>
 		</v-list>
 
@@ -21,12 +23,16 @@
 				prepend-icon="mdi-book-alphabet"
 				title="Словарь"
 				value="myfiles"
+				link
+				to="/dictionary"
 			/>
 
 			<v-list-item
 				prepend-icon="mdi-chart-areaspline"
 				title="Статистика"
 				value="shared"
+				link
+				to="/statistics"
 			/>
 		</v-list>
 
@@ -36,6 +42,7 @@
 					block
 					class="text-white"
 					color="blue darken-1"
+					to="/test"
 				>
 					Начать тест
 				</v-btn>
@@ -43,7 +50,7 @@
 				<v-divider />
 
 				<div class="d-flex flex-column w-100">
-					<div class="px-2 py-2 text-white text-center w-100">
+					<div class="px-2 py-2 text-center w-100">
 						{{ new Date().getFullYear() }} — <strong>PunkMachine</strong>
 					</div>
 				</div>

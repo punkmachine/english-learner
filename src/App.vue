@@ -11,11 +11,9 @@
 				<AppHeader />
 			</v-app-bar>
 
-			<!-- в v-layout прокидывать v-main слотом. -->
 			<v-main>
 				<router-view />
 			</v-main>
-
 		</v-layout>
 	</v-app>
 </template>
