@@ -6,9 +6,8 @@
 	>
 		<v-list>
 			<v-list-item
-				prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
-				title="Sandra Adams"
-				subtitle="sandra_a88@gmailcom"
+				:prepend-avatar="'./img/logo.png'"
+				title="English Learner"
 			/>
 		</v-list>
 
@@ -17,32 +16,37 @@
 		<v-list
 			density="compact"
 			nav
-			color="transparent"
 		>
 			<v-list-item
-				prepend-icon="mdi-folder"
-				title="My Files"
+				prepend-icon="mdi-book-alphabet"
+				title="Словарь"
 				value="myfiles"
 			/>
 
 			<v-list-item
-				prepend-icon="mdi-account-multiple"
-				title="Shared with me"
+				prepend-icon="mdi-chart-areaspline"
+				title="Статистика"
 				value="shared"
-			/>
-
-			<v-list-item
-				prepend-icon="mdi-star"
-				title="Starred"
-				value="starred"
 			/>
 		</v-list>
 
 		<template v-slot:append>
 			<div class="pa-2">
-				<v-btn block>
-					Logout
+				<v-btn
+					block
+					class="text-white"
+					color="blue darken-1"
+				>
+					Начать тест
 				</v-btn>
+
+				<v-divider />
+
+				<div class="d-flex flex-column w-100">
+					<div class="px-2 py-2 text-white text-center w-100">
+						{{ new Date().getFullYear() }} — <strong>PunkMachine</strong>
+					</div>
+				</div>
 			</div>
 		</template>
 	</v-navigation-drawer>

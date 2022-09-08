@@ -11,14 +11,7 @@
 				<AppHeader />
 			</v-app-bar>
 
-			<v-app-bar
-				location="bottom"
-				height="80"
-				elevation="0"
-			>
-				<AppFooter />
-			</v-app-bar>
-
+			<!-- в v-layout прокидывать v-main слотом. -->
 			<v-main>
 				<router-view />
 			</v-main>
@@ -29,14 +22,12 @@
 
 <script>
 import AppSidebar from '@/components/App/AppSidebar.vue';
-import AppFooter from '@/components/App/AppFooter.vue';
 import AppHeader from '@/components/App/AppHeader.vue';
 
 export default {
 	name: 'App',
 	components: {
 		AppSidebar,
-		AppFooter,
 		AppHeader
 	},
 }
