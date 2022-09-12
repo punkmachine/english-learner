@@ -24,7 +24,6 @@
 			<v-list-item
 				prepend-icon="mdi-book-alphabet"
 				title="Словарь"
-				value="myfiles"
 				link
 				to="/dictionary"
 			/>
@@ -32,9 +31,14 @@
 			<v-list-item
 				prepend-icon="mdi-chart-areaspline"
 				title="Статистика"
-				value="shared"
 				link
 				to="/statistics"
+			/>
+
+			<v-list-item
+				prepend-icon="mdi-information"
+				link
+				title="О проекте"
 			/>
 		</v-list>
 
@@ -53,7 +57,13 @@
 
 				<div class="d-flex flex-column w-100">
 					<div class="px-2 py-2 text-center w-100">
-						{{ new Date().getFullYear() }} — <strong>PunkMachine</strong>
+						{{ new Date().getFullYear() }} —
+						<a
+							href="https://github.com/punkmachine"
+							target="_blank"
+						>
+							PunkMachine
+						</a>
 					</div>
 				</div>
 			</div>
