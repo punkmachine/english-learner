@@ -1,15 +1,16 @@
 <template>
 	<v-app>
 		<v-layout>
-			<AppSidebar />
-
 			<v-app-bar
 				theme="dark"
 				height="65"
 				elevation="0"
+				color="#2B2B2B"
 			>
 				<AppHeader />
 			</v-app-bar>
+
+			<AppSidebar />
 
 			<v-main>
 				<router-view />

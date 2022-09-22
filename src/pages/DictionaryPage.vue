@@ -1,61 +1,63 @@
 <template>
 	<div class="dictionary-page py-5 px-5">
 		<div class="dictionary-page__col">
-			<v-table
-				fixed-header
-				fixed-footer
-				class="dictionary-page__table"
-				:height="heightTable"
-			>
-				<thead>
-					<tr>
-						<th class="text-left">#</th>
-						<th class="text-left">ru</th>
-						<th class="text-left">en</th>
-						<th
-							class="text-left"
-							width="60px"
+			<v-card>
+				<v-table
+					fixed-header
+					fixed-footer
+					class="dictionary-page__table"
+					:height="heightTable"
+				>
+					<thead>
+						<tr>
+							<th class="text-left">#</th>
+							<th class="text-left">ru</th>
+							<th class="text-left">en</th>
+							<th
+								class="text-left"
+								width="60px"
+							>
+								actions
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr
+							v-for="index of 20"
+							:key="index"
+							:class="{'dictionary-page__tr-bg': index % 2 !== 0}"
 						>
-							actions
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr
-						v-for="index of 20"
-						:key="index"
-						:class="{'dictionary-page__tr-bg': index % 2 !== 0}"
-					>
-						<td> {{ index }} </td>
-						<td>слово, слово, слово</td>
-						<td>слово, слово, слово</td>
-						<td>
-							<div class="dictionary-page__btn-group d-flex">
-								<v-btn
-									icon="mdi-pencil"
-									color="blue darken-1"
-									class="text-white"
-									size="small"
-								/>
-								<v-btn
-									icon="mdi-delete"
-									color="blue darken-1"
-									class="text-white"
-									size="small"
-								/>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<td class="text-left">#</td>
-						<td class="text-left">ru</td>
-						<td class="text-left">en</td>
-						<td class="text-left">actions</td>
-					</tr>
-				</tfoot>
-			</v-table>
+							<td> {{ index }} </td>
+							<td>слово, слово, слово</td>
+							<td>слово, слово, слово</td>
+							<td>
+								<div class="dictionary-page__btn-group d-flex">
+									<v-btn
+										icon="mdi-pencil"
+										color="blue darken-1"
+										class="text-white"
+										size="small"
+									/>
+									<v-btn
+										icon="mdi-delete"
+										color="blue darken-1"
+										class="text-white"
+										size="small"
+									/>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td class="text-left">#</td>
+							<td class="text-left">ru</td>
+							<td class="text-left">en</td>
+							<td class="text-left">actions</td>
+						</tr>
+					</tfoot>
+				</v-table>
+			</v-card>
 		</div>
 		<div class="dictionary-page__col">
 			<div class="dictionary-page__cards">
@@ -72,10 +74,10 @@
 					<v-card-title>Добавление слова</v-card-title>
 					<v-card-text>
 						<v-text-field
-							label="Введите слово на русском..."
+							label="Введите слово и его синонимы на русском..."
 						/>
 						<v-text-field
-							label="Введите слово на английском..."
+							label="Введите слово и его синонимы на английском..."
 						/>
 					</v-card-text>
 					<v-card-actions>
@@ -108,13 +110,10 @@ export default {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	gap: 40px;
+	background-color: #f3f3f3;
 
 	&__tr-bg {
 		background-color: #E7E9EB;
-	}
-
-	&__table {
-		border: 1px solid #000;
 	}
 
 	&__cards {

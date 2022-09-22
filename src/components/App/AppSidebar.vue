@@ -1,22 +1,9 @@
 <template>
 	<v-navigation-drawer
-		theme="dark"
 		permanent
 		width="250"
+		color="#3F3F3F"
 	>
-		<!-- TODO: Надо исправить выделение активным классом при клике -->
-		<v-list>
-			<v-list-item
-				:prepend-avatar="'./img/logo.png'"
-				title="English Learner"
-				link
-				to="/"
-			/>
-		</v-list>
-
-		<v-divider />
-
-		<!-- TODO: Надо исправить выделение активным классом при клике на другой роут. -->
 		<v-list
 			density="compact"
 			nav
@@ -24,6 +11,7 @@
 			<v-list-item
 				prepend-icon="mdi-book-alphabet"
 				title="Словарь"
+				class="text-white"
 				link
 				to="/dictionary"
 			/>
@@ -31,12 +19,14 @@
 			<v-list-item
 				prepend-icon="mdi-chart-areaspline"
 				title="Статистика"
+				class="text-white"
 				link
 				to="/statistics"
 			/>
 
 			<v-list-item
 				prepend-icon="mdi-information"
+				class="text-white"
 				link
 				title="О проекте"
 			/>
@@ -56,11 +46,12 @@
 				<v-divider />
 
 				<div class="d-flex flex-column w-100">
-					<div class="px-2 py-2 text-center w-100">
+					<div class="px-2 py-2 text-center w-100 text-white">
 						{{ new Date().getFullYear() }} —
 						<a
 							href="https://github.com/punkmachine"
 							target="_blank"
+							class="link"
 						>
 							PunkMachine
 						</a>
@@ -70,3 +61,9 @@
 		</template>
 	</v-navigation-drawer>
 </template>
+
+<style lang="scss" scoped>
+.link {
+	color: #1E88E5 !important;
+}
+</style>

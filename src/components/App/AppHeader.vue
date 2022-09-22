@@ -1,18 +1,36 @@
 <template>
 	<div class="header">
-		<v-btn icon>
-			<v-icon>mdi-magnify</v-icon>
-		</v-btn>
-		<v-btn icon>
-			<v-icon>mdi-account-circle</v-icon>
-		</v-btn>
+		<div class="header__wrapper">
+			<v-list class="header__logo">
+				<v-list-item
+					:prepend-avatar="'./img/logo.png'"
+					title="English Learner"
+					link
+					:active="false"
+					to="/"
+				/>
+			</v-list>
+
+			<v-btn
+				icon="mdi-account-circle"
+				size="x-large"
+				class="text-white"
+			/>
+		</div>
 	</div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 	.header {
 		width: 100%;
-		display: flex;
-		justify-content: flex-end;
+
+		&__wrapper {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__logo {
+			background-color: #2B2B2B;
+		}
 	}
 </style>
