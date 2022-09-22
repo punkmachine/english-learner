@@ -1,0 +1,21 @@
+@import './colors';
+
+.el-bg-ultra-dark {
+	background-color: $ultraDark;
+}
+
+.el-text-white {
+	color: $mainLightColor !important;
+}
+
+.el-link {
+	color: $linkColor !important;
+}
+
+.el-btn {
+	background-color: $linkColor;
+}
+
+.wrapper {
+	background-color: $mainLightColor;
+}

@@ -2,7 +2,7 @@
 	<v-navigation-drawer
 		permanent
 		width="250"
-		color="#3F3F3F"
+		:color="navigationDrawerColor"
 	>
 		<v-list
 			density="compact"
@@ -11,7 +11,7 @@
 			<v-list-item
 				prepend-icon="mdi-book-alphabet"
 				title="Словарь"
-				class="text-white"
+				class="el-text-white"
 				link
 				to="/dictionary"
 			/>
@@ -19,14 +19,14 @@
 			<v-list-item
 				prepend-icon="mdi-chart-areaspline"
 				title="Статистика"
-				class="text-white"
+				class="el-text-white"
 				link
 				to="/statistics"
 			/>
 
 			<v-list-item
 				prepend-icon="mdi-information"
-				class="text-white"
+				class="el-text-white"
 				link
 				title="О проекте"
 			/>
@@ -36,8 +36,8 @@
 			<div class="pa-2">
 				<v-btn
 					block
-					class="text-white"
-					color="blue darken-1"
+					class="el-text-white"
+					:color="btnColors"
 					to="/test"
 				>
 					Начать тест
@@ -46,12 +46,12 @@
 				<v-divider />
 
 				<div class="d-flex flex-column w-100">
-					<div class="px-2 py-2 text-center w-100 text-white">
+					<div class="px-2 py-2 text-center w-100 el-text-white">
 						{{ new Date().getFullYear() }} —
 						<a
 							href="https://github.com/punkmachine"
 							target="_blank"
-							class="link"
+							class="el-link"
 						>
 							PunkMachine
 						</a>
@@ -62,8 +62,15 @@
 	</v-navigation-drawer>
 </template>
 
-<style lang="scss" scoped>
-.link {
-	color: #1E88E5 !important;
+<script>
+import { colors } from '@/utils/color';
+
+export default {
+	data() {
+		return {
+			navigationDrawerColor: colors.dark,
+			btnColors: colors.linkColor,
+		}
+	}
 }
-</style>
+</script>

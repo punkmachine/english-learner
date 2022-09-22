@@ -1,7 +1,7 @@
 <template>
-	<div class="header">
-		<div class="header__wrapper">
-			<v-list class="header__logo">
+	<div class="header w-100">
+		<div class="d-flex justify-space-between">
+			<v-list class="el-bg-ultra-dark">
 				<v-list-item
 					:prepend-avatar="'./img/logo.png'"
 					title="English Learner"
@@ -14,23 +14,20 @@
 			<v-btn
 				icon="mdi-account-circle"
 				size="x-large"
-				class="text-white"
+				:color="btnColor"
 			/>
 		</div>
 	</div>
 </template>
 
-<style lang="scss" scoped>
-	.header {
-		width: 100%;
+<script>
+import { colors } from '@/utils/color';
 
-		&__wrapper {
-			display: flex;
-			justify-content: space-between;
-		}
-
-		&__logo {
-			background-color: #2B2B2B;
+export default {
+	data() {
+		return {
+			btnColor: colors.mainLightColor,
 		}
 	}
-</style>
+}
+</script>

@@ -34,15 +34,13 @@
 								<div class="dictionary-page__btn-group d-flex">
 									<v-btn
 										icon="mdi-pencil"
-										color="blue darken-1"
-										class="text-white"
-										size="small"
+										class="el-btn el-text-white"
+										size="x-small"
 									/>
 									<v-btn
 										icon="mdi-delete"
-										color="blue darken-1"
-										class="text-white"
-										size="small"
+										class="el-btn el-text-white"
+										size="x-small"
 									/>
 								</div>
 							</td>
@@ -83,7 +81,7 @@
 					<v-card-actions>
 						<v-btn
 							block
-							class="el-btn text-white"
+							class="el-btn el-text-white"
 							prepend-icon="mdi-plus-box"
 						>
 							Добавить
@@ -105,15 +103,18 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .dictionary-page {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	gap: 40px;
-	background-color: #f3f3f3;
 
 	&__tr-bg {
-		background-color: #E7E9EB;
+		background-color: #f5f5f5;
+
+		&:hover {
+			background-color: #fff !important;
+		}
 	}
 
 	&__cards {
@@ -126,9 +127,5 @@ export default {
 	&__btn-group {
 		gap: 10px;
 	}
-}
-
-.el-btn {
-	background-color: #2196F3;
 }
 </style>
