@@ -39,51 +39,107 @@
 		<div class="statistics-page__col">
 			<div class="statistics-page__cards">
 				<v-card class="py-3 px-3">
-					<v-card-title>
-						<v-icon>mdi-test-tube</v-icon>
-						20
+					<v-card-title class="d-flex align-center gap-10">
+						<v-icon color="#D81B60">mdi-test-tube</v-icon>
+						<span class="statistics-page__cards-title">20</span>
 					</v-card-title>
 					<v-divider />
 					<v-card-text>Пройденных тестов</v-card-text>
 				</v-card>
 				<v-card class="py-3 px-3">
-					<v-card-title>
-						<v-icon>mdi-check-circle</v-icon>
-						60%
+					<v-card-title class="d-flex align-center gap-10">
+						<v-icon color="#43A047">mdi-check-circle</v-icon>
+						<span class="statistics-page__cards-title">60%</span>
 					</v-card-title>
 					<v-divider />
 					<v-card-text>Правильных ответов</v-card-text>
 				</v-card>
 				<v-card class="py-3 px-3">
-					<v-card-title>
-						<v-icon>mdi-arrow-top-right</v-icon>
-						+10%
+					<v-card-title class="d-flex align-center gap-10">
+						<v-icon color="#FDD835">mdi-arrow-top-right</v-icon>
+						<span class="statistics-page__cards-title">+10%</span>
 					</v-card-title>
 					<v-divider />
 					<v-card-text>По сравнению с прошлой неделей</v-card-text>
 				</v-card>
 				<v-card class="py-3 px-3">
-					<v-card-title>
-						<v-icon>mdi-star</v-icon>
-						3
+					<v-card-title class="d-flex align-center gap-10">
+						<v-icon color="#E53935">mdi-star</v-icon>
+						<span class="statistics-page__cards-title">3</span>
 					</v-card-title>
 					<v-divider />
 					<v-card-text>Оценка успеваемости</v-card-text>
 				</v-card>
 			</div>
-			<!-- 1 колонка -->
-			<!-- график https://codesandbox.io/s/github/apertureless/vue-chartjs/tree/main/sandboxes/line -->
+			<div class="statistics-page__chart mt-5">
+				<v-card class="py-3 px-3">
+					<LineChart
+						:chart-options="chartOptions"
+						:chart-data="chartData"
+						:chart-id="'line-chart'"
+						:dataset-id-key="'label'"
+						:plugins="[]"
+						:css-classes="['w-100']"
+						:styles="{}"
+						:width="400"
+						:height="400"
+					/>
+				</v-card>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import { Line } from 'vue-chartjs';
+import {
+	Chart as ChartJS,
+	Title,
+	Tooltip,
+	Legend,
+	LineElement,
+	LinearScale,
+	CategoryScale,
+	PointElement
+} from 'chart.js';
+
+ChartJS.register(
+	Title,
+	Tooltip,
+	Legend,
+	LineElement,
+	LinearScale,
+	CategoryScale,
+	PointElement
+);
+
 export default {
+	components: {
+		LineChart: Line,
+	},
+	data() {
+		return {
+			chartOptions: {
+				responsive: true,
+				maintainAspectRatio: false
+			},
+			chartData: {
+				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+				datasets: [
+					{
+						label: 'Data One',
+						backgroundColor: '#f87979',
+						data: [40, 39, 10, 40, 39, 80, 40]
+					}
+				]
+			},
+		};
+	},
 	computed: {
 		heightTable() {
 			return window.innerHeight - 65*2;
 		},
-	}
+	},
 }
 </script>
 
@@ -106,6 +162,10 @@ export default {
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: auto;
 		gap: 40px;
+
+		&-title {
+			font-size: 1.65rem;
+		}
 	}
 }
 </style>
