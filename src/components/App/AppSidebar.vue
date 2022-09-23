@@ -29,6 +29,7 @@
 				class="el-text-white"
 				link
 				title="О проекте"
+				to="/about"
 			/>
 		</v-list>
 

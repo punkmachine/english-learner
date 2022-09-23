@@ -21,6 +21,16 @@ const routes = [
 		path: '/dictionary',
 		name: 'dictionary',
 		component: () => import(/* webpackChunkName: "dictionary" */ '../pages/DictionaryPage.vue')
+	},
+	{
+		path: '/profile',
+		name: 'profile',
+		component: () => import(/* webpackChunkName: "profile" */ '../pages/ProfilePage.vue')
+	},
+	{
+		path: '/about',
+		name: 'about',
+		component: () => import(/* webpackChunkName: "about" */ '../pages/AboutPage.vue')
 	}
 ];
 

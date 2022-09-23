@@ -14,6 +14,7 @@
 			<v-btn
 				icon="mdi-account-circle"
 				size="x-large"
+				to="/profile"
 				:color="btnColor"
 			/>
 		</div>
