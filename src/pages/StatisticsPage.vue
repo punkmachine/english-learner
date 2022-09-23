@@ -78,11 +78,6 @@
 						:chart-data="chartData"
 						:chart-id="'line-chart'"
 						:dataset-id-key="'label'"
-						:plugins="[]"
-						:css-classes="['w-100']"
-						:styles="{}"
-						:width="400"
-						:height="400"
 					/>
 				</v-card>
 			</div>
