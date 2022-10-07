@@ -25,6 +25,14 @@
 			/>
 
 			<v-list-item
+				prepend-icon="mdi-cards"
+				class="el-text-white"
+				link
+				title="Карточки"
+				to="/cards"
+			/>
+
+			<v-list-item
 				prepend-icon="mdi-information"
 				class="el-text-white"
 				link
