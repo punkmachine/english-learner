@@ -10,14 +10,14 @@
 				>
 					<thead>
 						<tr>
-							<th class="text-left">#</th>
-							<th class="text-left">ru</th>
-							<th class="text-left">en</th>
+							<th class="text-left">Номер</th>
+							<th class="text-left">На русском</th>
+							<th class="text-left">На английском</th>
 							<th
 								class="text-left"
 								width="60px"
 							>
-								actions
+								Действия
 							</th>
 						</tr>
 					</thead>
@@ -95,11 +95,13 @@
 
 <script>
 export default {
-	computed: {
-		heightTable() {
-			return window.innerHeight - 65*2;
-		},
-	}
+	setup(props) {
+		const heightTable = window.innerHeight - 65*2;
+
+		return {
+			heightTable
+		};
+	},
 }
 </script>
 

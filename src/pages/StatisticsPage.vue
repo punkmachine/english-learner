@@ -112,29 +112,29 @@ export default {
 	components: {
 		LineChart: Line,
 	},
-	data() {
-		return {
-			chartOptions: {
-				responsive: true,
-				maintainAspectRatio: false
-			},
-			chartData: {
-				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-				datasets: [
-					{
-						label: 'Data One',
-						backgroundColor: '#f87979',
-						data: [40, 39, 10, 40, 39, 80, 40]
-					}
-				]
-			},
+	setup() {
+		const chartOptions = {
+			responsive: true,
+			maintainAspectRatio: false
 		};
-	},
-	computed: {
-		heightTable() {
-			return window.innerHeight - 65*2;
-		},
-	},
+		const chartData = {
+			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+			datasets: [
+				{
+					label: 'Data One',
+					backgroundColor: '#f87979',
+					data: [40, 39, 10, 40, 39, 80, 40]
+				}
+			]
+		};
+		const heightTable = window.innerHeight - 65*2;
+
+		return {
+			chartOptions,
+			chartData,
+			heightTable
+		}
+	}
 }
 </script>
 
