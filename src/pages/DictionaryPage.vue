@@ -84,15 +84,6 @@
 		<div class="dictionary-page__col">
 			<div class="dictionary-page__cards">
 				<v-card>
-					<v-card-title>Поиск</v-card-title>
-					<v-card-text>
-						<v-text-field
-							label="Поиск..."
-							append-inner-icon="mdi-magnify"
-						/>
-					</v-card-text>
-				</v-card>
-				<v-card>
 					<v-card-title>Добавление слова</v-card-title>
 					<v-card-text>
 						<!-- TODO: добавление слова не только по пробелу, но и по запятой -->
