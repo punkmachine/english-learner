@@ -10,9 +10,24 @@
 				>
 					<thead>
 						<tr>
-							<th class="text-left">Номер</th>
-							<th class="text-left">На русском</th>
-							<th class="text-left">На английском</th>
+							<th
+								class="text-left"
+								width="85px"
+							>
+								Номер
+							</th>
+							<th
+								class="text-left"
+								width="50%"
+							>
+								На русском
+							</th>
+							<th
+								class="text-left"
+								width="50%"
+							>
+								На английском
+							</th>
 							<th
 								class="text-left"
 								width="60px"
@@ -22,12 +37,14 @@
 						</tr>
 					</thead>
 					<tbody>
+						<!-- TODO: список отображать в lazy -->
 						<tr
 							v-for="(word, index) in wordList"
 							:key="word.id"
 							:class="{'dictionary-page__tr-bg': index % 2 !== 0}"
 						>
 							<td> {{ index }} </td>
+							<!-- TODO: сделать слова с больших букв -->
 							<td> {{ word['word_variants_ru'].join(', ') }} </td>
 							<td> {{ word['word_variants_en'].join(', ') }} </td>
 							<td>
@@ -76,6 +93,8 @@
 				<v-card>
 					<v-card-title>Добавление слова</v-card-title>
 					<v-card-text>
+						<!-- TODO: добавление слова не только по пробелу, но и по запятой -->
+						<!-- TODO: добавить галочку иконкой, которая будет добавлять слово -->
 						<v-text-field
 							v-model.trim="ruWord"
 							@keypress.space="addRuWordToInput"
@@ -84,6 +103,8 @@
 							label="Введите слово и его синонимы на русском..."
 							class="mb-3"
 						>
+							<!-- TODO: убрать паддинги -->
+							<!-- TODO: сделать кнопку очистки -->
 							<template #details>
 								<v-chip-group
 									column
