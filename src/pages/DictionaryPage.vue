@@ -43,7 +43,7 @@
 							:key="word.id"
 							:class="{'dictionary-page__tr-bg': index % 2 !== 0}"
 						>
-							<td> {{ index }} </td>
+							<td> {{ index + 1 }} </td>
 							<!-- TODO: сделать слова с больших букв -->
 							<td> {{ word['word_variants_ru'].join(', ') }} </td>
 							<td> {{ word['word_variants_en'].join(', ') }} </td>
@@ -55,6 +55,7 @@
 										size="x-small"
 									/>
 									<v-btn
+										@click="deleteWord(word.id)"
 										icon="mdi-delete"
 										class="el-btn el-text-white"
 										size="x-small"
@@ -169,6 +170,7 @@ export default {
 	data() {
 		return {
 			heightTable: window.innerHeight - 65*2,
+			loading: false,
 			wordList: [],
 			enWord: '',
 			ruWord: '',
@@ -177,11 +179,18 @@ export default {
 		}
 	},
 	mounted() {
-		this.axios.get(`${process.env.VUE_APP_API_URL}/word-list`).then((response) => {
-			this.wordList = response.data;
-		});
+		this.getWordsList();
 	},
 	methods: {
+		getWordsList() {
+			this.loading = true;
+
+			this.axios.get(`${process.env.VUE_APP_API_URL}/word-list`).then(response => {
+				this.wordList = response.data;
+			});
+
+			this.loading = false;
+		},
 		addWordToList() {
 			const request = {
 				words: [{
@@ -191,11 +200,23 @@ export default {
 			};
 
 			if (this.wordsRuAddingList.length > 0 && this.wordsEnAddingList.length > 0) {
-				this.axios.post(`${process.env.VUE_APP_API_URL}/new-words`, request).then((response) => {
+				// TODO: обработка catch
+				this.axios.post(`${process.env.VUE_APP_API_URL}/new-words`, request).then(response => {
 					// TODO: нормальный вывод сообщения успешно
 					console.log(response);
+					this.getWordsList();
+					this.wordsEnAddingList = [];
+					this.wordsRuAddingList = [];
 				});
 			}
+		},
+		deleteWord(id) {
+			// TODO: обработка catch
+			this.axios.delete(`${process.env.VUE_APP_API_URL}/delete-word?id=${id}`).then(response => {
+				// TODO: нормальный вывод сообщения успешно
+				console.log(response);
+				this.getWordsList();
+			});
 		},
 		addRuWordToInput() {
 			if (this.ruWord.length > 0) {
