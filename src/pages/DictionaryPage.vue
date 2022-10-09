@@ -57,76 +57,7 @@
 		<div class="dictionary-page__col">
 			<div class="dictionary-page__cards">
 				<SearchWords />
-				<v-card>
-					<v-card-title>Добавление слова</v-card-title>
-					<v-card-text>
-						<!-- TODO: добавление слова не только по пробелу, но и по запятой -->
-						<!-- TODO: добавить галочку иконкой, которая будет добавлять слово -->
-						<v-text-field
-							v-model.trim="ruWord"
-							@keypress.space="addRuWordToInput"
-							@click:clear="clearRuInput"
-							clearable
-							label="Введите слово и его синонимы на русском..."
-							class="mb-3"
-						>
-							<!-- TODO: убрать паддинги -->
-							<!-- TODO: сделать кнопку очистки -->
-							<!-- TODO: выровнять chip слева -->
-							<template #details>
-								<v-chip-group
-									column
-								>
-									<v-chip
-										v-for="(word, index) in wordsRuAddingList"
-										:key="index"
-										@click:close="deleteWordInRuAddingList(index)"
-										closable
-										size="small"
-									>
-										{{ word }}
-									</v-chip>
-								</v-chip-group>
-							</template>
-						</v-text-field>
-
-						<v-text-field
-							v-model.trim="enWord"
-							@keypress.space="addEnWordToInput"
-							@keypress.enter="addWordToList"
-							@click:clear="clearEnInput"
-							clearable
-							label="Введите слово и его синонимы на английском..."
-						>
-							<template #details>
-								<v-chip-group
-									column
-								>
-									<v-chip
-										v-for="(word, index) in wordsEnAddingList"
-										:key="index"
-										@click:close="deleteWordInEnAddingList(index)"
-										closable
-										size="small"
-									>
-										{{ word }}
-									</v-chip>
-								</v-chip-group>
-							</template>
-						</v-text-field>
-					</v-card-text>
-					<v-card-actions>
-						<v-btn
-							@click="addWordToList"
-							block
-							class="el-btn el-text-white"
-							prepend-icon="mdi-plus-box"
-							:disabled="wordsEnAddingList.length === 0 || wordsRuAddingList.length === 0"
-						>
-							Добавить
-						</v-btn>
-					</v-card-actions>
-				</v-card>
+				<AddWordCard @addWordToList="addWordToList" />
 			</div>
 		</div>
 
@@ -252,15 +183,13 @@
 import TableWrapper from '@/components/shared/TableWrapper.vue';
 import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
 import WordList from '@/components/dictionaryPage/WordList.vue';
+import AddWordCard from '@/components/dictionaryPage/AddWordCard.vue';
 
 export default {
 	data() {
 		return {
 			loading: false,
 			wordList: [],
-
-			enWord: '',
-			ruWord: '',
 
 			wordsRuAddingList: [],
 			wordsEnAddingList: [],
@@ -274,7 +203,8 @@ export default {
 		}
 	},
 	components: {
-		SearchWords, TableWrapper, WordList
+		SearchWords, AddWordCard,
+		TableWrapper, WordList,
 	},
 	mounted() {
 		this.getWordsList();
@@ -289,24 +219,13 @@ export default {
 
 			this.loading = false;
 		},
-		addWordToList() {
-			const request = {
-				words: [{
-					wordsEn: this.wordsEnAddingList,
-					wordsRu: this.wordsRuAddingList,
-				}]
-			};
-
-			if (this.wordsRuAddingList.length > 0 && this.wordsEnAddingList.length > 0) {
-				// TODO: обработка catch
-				this.axios.post(`${process.env.VUE_APP_API_URL}/new-words`, request).then(response => {
-					// TODO: нормальный вывод сообщения успешно
-					console.log(response);
-					this.getWordsList();
-					this.wordsEnAddingList = [];
-					this.wordsRuAddingList = [];
-				});
-			}
+		addWordToList(request) {
+			// TODO: обработка catch
+			this.axios.post(`${process.env.VUE_APP_API_URL}/new-words`, request).then(response => {
+				// TODO: нормальный вывод сообщения успешно
+				console.log(response);
+				this.getWordsList();
+			});
 		},
 		deleteWord(id) {
 			// TODO: обработка catch
@@ -341,30 +260,6 @@ export default {
 			});
 
 			this.loading = false;
-		},
-		addRuWordToInput() {
-			if (this.ruWord.length > 0) {
-				this.wordsRuAddingList.push(this.ruWord.trim());
-				this.ruWord = '';
-			}
-		},
-		addEnWordToInput() {
-			if (this.enWord.length > 0) {
-				this.wordsEnAddingList.push(this.enWord.trim());
-				this.enWord = '';
-			}
-		},
-		deleteWordInRuAddingList(index) {
-			this.wordsRuAddingList.splice(index, 1);
-		},
-		deleteWordInEnAddingList(index) {
-			this.wordsEnAddingList.splice(index, 1);
-		},
-		clearRuInput() {
-			this.ruWord = '';
-		},
-		clearEnInput() {
-			this.enWord = '';
 		},
 		clearEnEditingList() {
 			this.wordsEnEditingList = [];
