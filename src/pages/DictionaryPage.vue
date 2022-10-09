@@ -41,7 +41,7 @@
 						<tr
 							v-for="(word, index) in wordList"
 							:key="word.id"
-							:class="{'dictionary-page__tr-bg': index % 2 !== 0}"
+							:class="{'dictionary-page__tr-bg': index % 2 === 0}"
 						>
 							<td> {{ index + 1 }} </td>
 							<!-- TODO: сделать слова с больших букв -->
@@ -50,6 +50,7 @@
 							<td>
 								<div class="dictionary-page__btn-group d-flex">
 									<v-btn
+										@click="editWordClick(word.id)"
 										icon="mdi-pencil"
 										class="el-btn el-text-white"
 										size="x-small"
@@ -106,6 +107,7 @@
 						>
 							<!-- TODO: убрать паддинги -->
 							<!-- TODO: сделать кнопку очистки -->
+							<!-- TODO: выровнять chip слева -->
 							<template #details>
 								<v-chip-group
 									column
@@ -162,6 +164,122 @@
 				</v-card>
 			</div>
 		</div>
+
+		<v-dialog v-model="visibleModalEditWord">
+			<v-card
+				max-width="500px"
+				min-width="500px"
+			>
+				<v-card-title class="py-2 px-4">Редактирование слова</v-card-title>
+				<v-divider />
+
+				<v-card-text class="pa-4">
+					<div class="d-flex flex-column gap-3">
+						<div>
+							<strong>Слова на русском:</strong>
+							<div class="d-flex align-center">
+								<v-text-field
+									v-model.trim="ruEditWord"
+									@keypress.space="addRuWordToInputEditing"
+									@click:clear="clearRuEditingInput"
+									clearable
+									label="Введите слово и его синонимы на русском..."
+								>
+									<!-- TODO: убрать паддинги -->
+									<!-- TODO: выровнять chip слева -->
+									<template #details>
+										<v-chip-group column>
+											<v-chip
+												v-for="(word, index) in wordsRuEditingList"
+												:key="index"
+												@click:close="deleteWordInRuEditingList(index)"
+												@click="changeEditWordRu(word)"
+												closable
+												size="small"
+											>
+												{{ word }}
+											</v-chip>
+
+											<v-chip
+												v-if="wordsRuEditingList.length > 0"
+												@click="clearRuEditingList"
+												size="small"
+											>
+												<v-icon
+													start
+													icon="mdi-close"
+												/>
+												Очистить
+											</v-chip>
+										</v-chip-group>
+									</template>
+								</v-text-field>
+							</div>
+						</div>
+
+						<div>
+							<strong>Слова на английском:</strong>
+							<div class="d-flex align-center">
+								<v-text-field
+									v-model.trim="enEditWord"
+									@keypress.space="addEnWordToInputEditing"
+									@keypress.enter="updateWord"
+									@click:clear="clearEnEditingInput"
+									clearable
+									label="Введите слово и его синонимы на английском..."
+								>
+									<template #details>
+										<v-chip-group column>
+											<v-chip
+												v-for="(word, index) in wordsEnEditingList"
+												:key="index"
+												@click:close="deleteWordInEnEditingList(index)"
+												@click="changeEditWordEn(word)"
+												closable
+												size="small"
+											>
+												{{ word }}
+											</v-chip>
+
+											<v-chip
+												v-if="wordsEnEditingList.length > 0"
+												@click="clearEnEditingList"
+												size="small"
+											>
+												<v-icon
+													start
+													icon="mdi-close"
+												/>
+												Очистить
+											</v-chip>
+										</v-chip-group>
+									</template>
+								</v-text-field>
+							</div>
+						</div>
+					</div>
+				</v-card-text>
+				<v-card-actions>
+					<div class="d-flex justify-space-between w-100 px-2 mt-4">
+						<v-btn
+							class="el-btn el-text-white w-50"
+							prepend-icon="mdi-check"
+							@click="updateWord"
+							:disabled="wordsRuEditingList.length === 0 || wordsEnEditingList.length === 0"
+						>
+							Обновить
+						</v-btn>
+						<v-btn
+							@click="closeModalEditWord"
+							class="el-btn el-text-white w-50"
+							prepend-icon="mdi-close"
+						>
+							Закрыть
+						</v-btn>
+					</div>
+				</v-card-actions>
+			</v-card>
+		</v-dialog>
 	</div>
 </template>
 
@@ -170,12 +288,22 @@ export default {
 	data() {
 		return {
 			heightTable: window.innerHeight - 65*2,
+
 			loading: false,
 			wordList: [],
+
 			enWord: '',
 			ruWord: '',
+
 			wordsRuAddingList: [],
 			wordsEnAddingList: [],
+
+			visibleModalEditWord: false,
+			editedWordId: null,
+			wordsRuEditingList: [],
+			wordsEnEditingList: [],
+			ruEditWord: '',
+			enEditWord: '',
 		}
 	},
 	mounted() {
@@ -218,6 +346,32 @@ export default {
 				this.getWordsList();
 			});
 		},
+		editWordClick(id) {
+			this.visibleModalEditWord = true;
+			this.editedWordId = id;
+
+			const editedWord = this.wordList.find(word => word.id === this.editedWordId);
+
+			this.wordsRuEditingList = editedWord['word_variants_ru'].length > 0 ? [...editedWord['word_variants_ru']] : [];
+			this.wordsEnEditingList = editedWord['word_variants_en'].length > 0 ? [...editedWord['word_variants_en']] : [];
+		},
+		updateWord() {
+			const request = {
+				wordsEn: this.wordsEnEditingList,
+				wordsRu: this.wordsRuEditingList,
+			};
+
+			this.loading = true;
+
+			// TODO: нормальный catch
+			this.axios.patch(`${process.env.VUE_APP_API_URL}/update-word?id=${this.editedWordId}`, request).then(response => {
+				// TODO: нормальный вывод сообщения успешно
+				console.log(response);
+				this.getWordsList();
+			});
+
+			this.loading = false;
+		},
 		addRuWordToInput() {
 			if (this.ruWord.length > 0) {
 				this.wordsRuAddingList.push(this.ruWord.trim());
@@ -231,14 +385,52 @@ export default {
 			}
 		},
 		deleteWordInRuAddingList(index) {
-			delete this.wordsRuAddingList[index];
+			this.wordsRuAddingList.splice(index, 1);
+		},
+		deleteWordInEnAddingList(index) {
+			this.wordsEnAddingList.splice(index, 1);
 		},
 		clearRuInput() {
 			this.ruWord = '';
 		},
 		clearEnInput() {
 			this.enWord = '';
-		}
+		},
+		clearEnEditingList() {
+			this.wordsEnEditingList = [];
+		},
+		clearRuEditingList() {
+			this.wordsRuEditingList = [];
+		},
+		closeModalEditWord() {
+			this.visibleModalEditWord = false;
+		},
+		deleteWordInRuEditingList(index) {
+			this.wordsRuEditingList.splice(index, 1);
+		},
+		deleteWordInEnEditingList(index) {
+			this.wordsEnEditingList.splice(index, 1);
+		},
+		changeEditWordEn(word) {
+			this.enEditWord = word;
+		},
+		changeEditWordRu(word) {
+			this.ruEditWord = word;
+		},
+		addEnWordToInputEditing() {
+			this.wordsEnEditingList.push(this.enEditWord);
+			this.enEditWord = '';
+		},
+		addRuWordToInputEditing() {
+			this.wordsRuEditingList.push(this.ruEditWord);
+			this.ruEditWord = '';
+		},
+		clearEnEditingInput() {
+			this.enEditWord = '';
+		},
+		clearRuEditingInput() {
+			this.ruEditWord = '';
+		},
 	}
 }
 </script>
