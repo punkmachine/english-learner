@@ -39,7 +39,7 @@
 		<div class="statistics-page__col">
 			<div class="statistics-page__cards">
 				<v-card class="py-3 px-3">
-					<v-card-title class="d-flex align-center gap-10">
+					<v-card-title class="d-flex align-center gap-3">
 						<v-icon color="#D81B60">mdi-test-tube</v-icon>
 						<span class="statistics-page__cards-title">20</span>
 					</v-card-title>
@@ -47,7 +47,7 @@
 					<v-card-text>Пройденных тестов</v-card-text>
 				</v-card>
 				<v-card class="py-3 px-3">
-					<v-card-title class="d-flex align-center gap-10">
+					<v-card-title class="d-flex align-center gap-3">
 						<v-icon color="#43A047">mdi-check-circle</v-icon>
 						<span class="statistics-page__cards-title">60%</span>
 					</v-card-title>
@@ -55,7 +55,7 @@
 					<v-card-text>Правильных ответов</v-card-text>
 				</v-card>
 				<v-card class="py-3 px-3">
-					<v-card-title class="d-flex align-center gap-10">
+					<v-card-title class="d-flex align-center gap-3">
 						<v-icon color="#FDD835">mdi-arrow-top-right</v-icon>
 						<span class="statistics-page__cards-title">+10%</span>
 					</v-card-title>
@@ -63,7 +63,7 @@
 					<v-card-text>По сравнению с прошлой неделей</v-card-text>
 				</v-card>
 				<v-card class="py-3 px-3">
-					<v-card-title class="d-flex align-center gap-10">
+					<v-card-title class="d-flex align-center gap-3">
 						<v-icon color="#E53935">mdi-star</v-icon>
 						<span class="statistics-page__cards-title">3</span>
 					</v-card-title>
