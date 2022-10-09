@@ -408,29 +408,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.dictionary-page {
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	gap: 40px;
 
-	&__tr-bg {
-		background-color: #f5f5f5;
-
-		&:hover {
-			background-color: #fff !important;
 		}
 	}
-
-	&__cards {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: auto;
-		gap: 20px;
-	}
-
-	&__btn-group {
-		gap: 10px;
-	}
 }
-</style>
