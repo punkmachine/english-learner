@@ -23,13 +23,13 @@
 					</thead>
 					<tbody>
 						<tr
-							v-for="index of 20"
-							:key="index"
+							v-for="(word, index) in wordList"
+							:key="word.id"
 							:class="{'dictionary-page__tr-bg': index % 2 !== 0}"
 						>
 							<td> {{ index }} </td>
-							<td>слово, слово, слово</td>
-							<td>слово, слово, слово</td>
+							<td> {{ word['word_variants_ru'].join(', ') }} </td>
+							<td> {{ word['word_variants_en'].join(', ') }} </td>
 							<td>
 								<div class="dictionary-page__btn-group d-flex">
 									<v-btn
@@ -48,10 +48,15 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<td class="text-left">#</td>
-							<td class="text-left">ru</td>
-							<td class="text-left">en</td>
-							<td class="text-left">actions</td>
+							<th class="text-left">Номер</th>
+							<th class="text-left">На русском</th>
+							<th class="text-left">На английском</th>
+							<th
+								class="text-left"
+								width="60px"
+							>
+								Действия
+							</th>
 						</tr>
 					</tfoot>
 				</v-table>
@@ -72,17 +77,62 @@
 					<v-card-title>Добавление слова</v-card-title>
 					<v-card-text>
 						<v-text-field
+							v-model.trim="ruWord"
+							@keypress.space="addRuWordToInput"
+							@click:clear="clearRuInput"
+							clearable
 							label="Введите слово и его синонимы на русском..."
-						/>
+							class="mb-3"
+						>
+							<template #details>
+								<v-chip-group
+									column
+								>
+									<v-chip
+										v-for="(word, index) in wordsRuAddingList"
+										:key="index"
+										@click:close="deleteWordInRuAddingList(index)"
+										closable
+										size="small"
+									>
+										{{ word }}
+									</v-chip>
+								</v-chip-group>
+							</template>
+						</v-text-field>
+
 						<v-text-field
+							v-model.trim="enWord"
+							@keypress.space="addEnWordToInput"
+							@keypress.enter="addWordToList"
+							@click:clear="clearEnInput"
+							clearable
 							label="Введите слово и его синонимы на английском..."
-						/>
+						>
+							<template #details>
+								<v-chip-group
+									column
+								>
+									<v-chip
+										v-for="(word, index) in wordsEnAddingList"
+										:key="index"
+										@click:close="deleteWordInEnAddingList(index)"
+										closable
+										size="small"
+									>
+										{{ word }}
+									</v-chip>
+								</v-chip-group>
+							</template>
+						</v-text-field>
 					</v-card-text>
 					<v-card-actions>
 						<v-btn
+							@click="addWordToList"
 							block
 							class="el-btn el-text-white"
 							prepend-icon="mdi-plus-box"
+							:disabled="wordsEnAddingList.length === 0 || wordsRuAddingList.length === 0"
 						>
 							Добавить
 						</v-btn>
@@ -95,17 +145,63 @@
 
 <script>
 export default {
-	setup(props) {
-		const heightTable = window.innerHeight - 65*2;
-
+	data() {
 		return {
-			heightTable
-		};
+			heightTable: window.innerHeight - 65*2,
+			wordList: [],
+			enWord: '',
+			ruWord: '',
+			wordsRuAddingList: [],
+			wordsEnAddingList: [],
+		}
 	},
+	mounted() {
+		this.axios.get(`${process.env.VUE_APP_API_URL}/word-list`).then((response) => {
+			this.wordList = response.data;
+		});
+	},
+	methods: {
+		addWordToList() {
+			const request = {
+				words: [{
+					wordsEn: this.wordsEnAddingList,
+					wordsRu: this.wordsRuAddingList,
+				}]
+			};
+
+			if (this.wordsRuAddingList.length > 0 && this.wordsEnAddingList.length > 0) {
+				this.axios.post(`${process.env.VUE_APP_API_URL}/new-words`, request).then((response) => {
+					// TODO: нормальный вывод сообщения успешно
+					console.log(response);
+				});
+			}
+		},
+		addRuWordToInput() {
+			if (this.ruWord.length > 0) {
+				this.wordsRuAddingList.push(this.ruWord.trim());
+				this.ruWord = '';
+			}
+		},
+		addEnWordToInput() {
+			if (this.enWord.length > 0) {
+				this.wordsEnAddingList.push(this.enWord.trim());
+				this.enWord = '';
+			}
+		},
+		deleteWordInRuAddingList(index) {
+			delete this.wordsRuAddingList[index];
+		},
+		clearRuInput() {
+			this.ruWord = '';
+		},
+		clearEnInput() {
+			this.enWord = '';
+		}
+	}
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .dictionary-page {
 	display: grid;
 	grid-template-columns: 2fr 1fr;

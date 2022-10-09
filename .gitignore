@@ -3,8 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,vuejs,vue,visualstudiocode,dotenv
 
 ### dotenv ###
-*.env
-dotenv/
+.env.*.local
 
 ### VisualStudioCode ###
 .vscode/*

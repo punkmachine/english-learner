@@ -6,3 +6,11 @@
 		HomePage
 	</v-card>
 </template>
+
+<script>
+export default {
+	setup(props, context) {
+
+	},
+}
+</script>
