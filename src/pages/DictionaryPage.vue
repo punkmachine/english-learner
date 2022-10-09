@@ -72,6 +72,8 @@
 </template>
 
 <script>
+import { ref, inject, onMounted } from 'vue';
+
 import TableWrapper from '@/components/shared/TableWrapper.vue';
 import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
 import WordList from '@/components/dictionaryPage/WordList.vue';
@@ -79,64 +81,87 @@ import AddWordCard from '@/components/dictionaryPage/AddWordCard.vue';
 import ModalEditCard from '@/components/dictionaryPage/ModalEditCard.vue';
 
 export default {
-	data() {
-		return {
-			loading: false,
-			wordList: [],
-
-			visibleModalEditWord: false,
-			editedWord: {},
-		}
-	},
 	components: {
 		SearchWords, AddWordCard,
 		TableWrapper, WordList,
 		ModalEditCard
 	},
-	mounted() {
-		this.getWordsList();
-	},
-	methods: {
-		getWordsList() {
-			this.loading = true;
+	setup(props, context) {
+		const axios = inject('axios');
 
-			this.axios.get(`${process.env.VUE_APP_API_URL}/word-list`).then(response => {
-				this.wordList = response.data;
-			});
+		const loading = ref(false);
+		const wordList = ref([]);
+		const visibleModalEditWord = ref(false);
+		const editedWord = ref({});
 
-			this.loading = false;
-		},
-		addWordToList(request) {
+		function getWordsList() {
+			loading.value = true;
+
+			// TODO: loading статус - лоадер.
+			axios
+				.get(`${process.env.VUE_APP_API_URL}/word-list`)
+				.then(response => {
+					wordList.value = response.data;
+				});
+
+			loading.value = false;
+		}
+
+		function addWordToList(request) {
 			// TODO: обработка catch
-			this.axios.post(`${process.env.VUE_APP_API_URL}/new-words`, request).then(response => {
-				// TODO: нормальный вывод сообщения успешно
-				console.log(response);
-				this.getWordsList();
-			});
-		},
-		deleteWord(id) {
+			axios
+				.post(`${process.env.VUE_APP_API_URL}/new-words`, request)
+				.then(response => {
+					// TODO: нормальный вывод сообщения успешно
+					console.log(response);
+					getWordsList();
+				});
+		}
+
+		function deleteWord(id) {
 			// TODO: обработка catch
-			this.axios.delete(`${process.env.VUE_APP_API_URL}/delete-word?id=${id}`).then(response => {
-				// TODO: нормальный вывод сообщения успешно
-				console.log(response);
-				this.getWordsList();
-			});
-		},
-		editWordClick(id) {
-			this.visibleModalEditWord = true;
-			this.editedWord = this.wordList.find(word => word.id === id);
-		},
-		updateWord(request) {
+			axios
+				.delete(`${process.env.VUE_APP_API_URL}/delete-word?id=${id}`)
+				.then(response => {
+					// TODO: нормальный вывод сообщения успешно
+					console.log(response);
+					getWordsList();
+				});
+		}
+
+		function editWordClick(id) {
+			visibleModalEditWord.value = true;
+			editedWord.value = wordList.value.find(word => word.id === id);
+		}
+
+		function updateWord(request) {
 			// TODO: нормальный catch
-			this.axios.patch(`${process.env.VUE_APP_API_URL}/update-word?id=${this.editedWord.id}`, request).then(response => {
-				// TODO: нормальный вывод сообщения успешно
-				console.log(response);
-				this.getWordsList();
-			});
-		},
-		closeModalEditWord() {
-			this.visibleModalEditWord = false;
-		},
+			axios
+				.patch(`${process.env.VUE_APP_API_URL}/update-word?id=${editedWord.value.id}`, request)
+				.then(response => {
+					// TODO: нормальный вывод сообщения успешно
+					console.log(response);
+					getWordsList();
+					closeModalEditWord();
+				});
+		}
+
+		function closeModalEditWord() {
+			visibleModalEditWord.value = false;
+		}
+
+		onMounted(() => {
+			getWordsList();
+		});
+
+		return {
+			loading,
+			wordList,
+			visibleModalEditWord,
+			editedWord,
+			addWordToList, deleteWord, editWordClick, updateWord,
+			closeModalEditWord
+		};
 	}
 }
 </script>
