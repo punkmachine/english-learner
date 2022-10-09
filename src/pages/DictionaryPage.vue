@@ -1,88 +1,64 @@
 <template>
 	<div class="dictionary-page py-5 px-5">
 		<div class="dictionary-page__col">
-			<v-card>
-				<v-table
-					fixed-header
-					fixed-footer
-					class="dictionary-page__table"
-					:height="heightTable"
-				>
-					<thead>
-						<tr>
-							<th
-								class="text-left"
-								width="85px"
-							>
-								Номер
-							</th>
-							<th
-								class="text-left"
-								width="50%"
-							>
-								На русском
-							</th>
-							<th
-								class="text-left"
-								width="50%"
-							>
-								На английском
-							</th>
-							<th
-								class="text-left"
-								width="60px"
-							>
-								Действия
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<!-- TODO: список отображать в lazy -->
-						<tr
-							v-for="(word, index) in wordList"
-							:key="word.id"
-							:class="{'dictionary-page__tr-bg': index % 2 === 0}"
+			<TableWrapper :classTable="dictionary-page__table">
+				<template #thead>
+					<tr>
+						<th
+							class="text-left"
+							width="85px"
 						>
-							<td> {{ index + 1 }} </td>
-							<!-- TODO: сделать слова с больших букв -->
-							<td> {{ word['word_variants_ru'].join(', ') }} </td>
-							<td> {{ word['word_variants_en'].join(', ') }} </td>
-							<td>
-								<div class="dictionary-page__btn-group d-flex">
-									<v-btn
-										@click="editWordClick(word.id)"
-										icon="mdi-pencil"
-										class="el-btn el-text-white"
-										size="x-small"
-									/>
-									<v-btn
-										@click="deleteWord(word.id)"
-										icon="mdi-delete"
-										class="el-btn el-text-white"
-										size="x-small"
-									/>
-								</div>
-							</td>
-						</tr>
+							Номер
+						</th>
+						<th
+							class="text-left"
+							width="50%"
+						>
+							На русском
+						</th>
+						<th
+							class="text-left"
+							width="50%"
+						>
+							На английском
+						</th>
+						<th
+							class="text-left"
+							width="60px"
+						>
+							Действия
+						</th>
+					</tr>
+				</template>
+
+				<template #tbody>
+					<tbody>
+						<WordList
+							:wordList="wordList"
+							@editWordClick="editWordClick"
+							@deleteWord="deleteWord"
+						/>
 					</tbody>
-					<tfoot>
-						<tr>
-							<th class="text-left">Номер</th>
-							<th class="text-left">На русском</th>
-							<th class="text-left">На английском</th>
-							<th
-								class="text-left"
-								width="60px"
-							>
-								Действия
-							</th>
-						</tr>
-					</tfoot>
-				</v-table>
-			</v-card>
+				</template>
+
+				<template #tfoot>
+					<tr>
+						<th class="text-left">Номер</th>
+						<th class="text-left">На русском</th>
+						<th class="text-left">На английском</th>
+						<th
+							class="text-left"
+							width="60px"
+						>
+							Действия
+						</th>
+					</tr>
+				</template>
+			</TableWrapper>
 		</div>
 		<div class="dictionary-page__col">
 			<div class="dictionary-page__cards">
+				<SearchWords />
 				<v-card>
 					<v-card-title>Добавление слова</v-card-title>
 					<v-card-text>
