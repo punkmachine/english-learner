@@ -32,35 +32,11 @@
 				</template>
 
 				<template #tbody>
-					<tbody>
-						<!-- TODO: список отображать в lazy -->
-						<tr
-							v-for="(word, index) in wordList"
-							:key="word.id"
-							:class="{'dictionary-page__tr-bg': index % 2 === 0}"
-						>
-							<td> {{ index + 1 }} </td>
-							<!-- TODO: сделать слова с больших букв -->
-							<td> {{ word['word_variants_ru'].join(', ') }} </td>
-							<td> {{ word['word_variants_en'].join(', ') }} </td>
-							<td>
-								<div class="dictionary-page__btn-group d-flex">
-									<v-btn
-										@click="editWordClick(word.id)"
-										icon="mdi-pencil"
-										class="el-btn el-text-white"
-										size="x-small"
-									/>
-									<v-btn
-										@click="deleteWord(word.id)"
-										icon="mdi-delete"
-										class="el-btn el-text-white"
-										size="x-small"
-									/>
-								</div>
-							</td>
-						</tr>
-					</tbody>
+					<WordList
+						:wordList="wordList"
+						@editWordClick="editWordClick"
+						@deleteWord="deleteWord"
+					/>
 				</template>
 
 				<template #tfoot>
@@ -273,8 +249,9 @@
 </template>
 
 <script>
-import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
 import TableWrapper from '@/components/shared/TableWrapper.vue';
+import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
+import WordList from '@/components/dictionaryPage/WordList.vue';
 
 export default {
 	data() {
@@ -297,7 +274,7 @@ export default {
 		}
 	},
 	components: {
-		SearchWords, TableWrapper
+		SearchWords, TableWrapper, WordList
 	},
 	mounted() {
 		this.getWordsList();
