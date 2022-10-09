@@ -33,17 +33,10 @@
 										{{ word }}
 									</v-chip>
 
-									<v-chip
+									<ClearChips
 										v-if="wordsRuEditingList.length > 0"
 										@click="clearRuEditingList"
-										size="small"
-									>
-										<v-icon
-											start
-											icon="mdi-close"
-										/>
-										Очистить
-									</v-chip>
+									/>
 								</v-chip-group>
 							</template>
 						</v-text-field>
@@ -74,17 +67,10 @@
 										{{ word }}
 									</v-chip>
 
-									<v-chip
+									<ClearChips
 										v-if="wordsEnEditingList.length > 0"
 										@click="clearEnEditingList"
-										size="small"
-									>
-										<v-icon
-											start
-											icon="mdi-close"
-										/>
-										Очистить
-									</v-chip>
+									/>
 								</v-chip-group>
 							</template>
 						</v-text-field>
@@ -115,7 +101,8 @@
 </template>
 
 <script>
-import { ref, toRefs, watch, computed } from 'vue';
+import { ref, toRefs } from 'vue';
+import ClearChips from '@/components/dictionaryPage/ClearChips.vue';
 
 export default {
 	props: {
@@ -123,6 +110,9 @@ export default {
 			type: Object,
 			required: true,
 		}
+	},
+	components: {
+		ClearChips,
 	},
 	setup(props, { emit }) {
 		const { initialStateWord } = toRefs(props);
