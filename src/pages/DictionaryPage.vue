@@ -284,68 +284,20 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+import { useCRUDWordList } from '@/hooks/useCRUDWordList';
+
 export default {
 	data() {
 		return {
-			heightTable: window.innerHeight - 65*2,
-
-			loading: false,
-			wordList: [],
-
 			enWord: '',
 			ruWord: '',
-
-			wordsRuAddingList: [],
-			wordsEnAddingList: [],
-
-			visibleModalEditWord: false,
-			editedWordId: null,
-			wordsRuEditingList: [],
-			wordsEnEditingList: [],
-			ruEditWord: '',
-			enEditWord: '',
 		}
 	},
 	mounted() {
 		this.getWordsList();
 	},
 	methods: {
-		getWordsList() {
-			this.loading = true;
-
-			this.axios.get(`${process.env.VUE_APP_API_URL}/word-list`).then(response => {
-				this.wordList = response.data;
-			});
-
-			this.loading = false;
-		},
-		addWordToList() {
-			const request = {
-				words: [{
-					wordsEn: this.wordsEnAddingList,
-					wordsRu: this.wordsRuAddingList,
-				}]
-			};
-
-			if (this.wordsRuAddingList.length > 0 && this.wordsEnAddingList.length > 0) {
-				// TODO: обработка catch
-				this.axios.post(`${process.env.VUE_APP_API_URL}/new-words`, request).then(response => {
-					// TODO: нормальный вывод сообщения успешно
-					console.log(response);
-					this.getWordsList();
-					this.wordsEnAddingList = [];
-					this.wordsRuAddingList = [];
-				});
-			}
-		},
-		deleteWord(id) {
-			// TODO: обработка catch
-			this.axios.delete(`${process.env.VUE_APP_API_URL}/delete-word?id=${id}`).then(response => {
-				// TODO: нормальный вывод сообщения успешно
-				console.log(response);
-				this.getWordsList();
-			});
-		},
 		editWordClick(id) {
 			this.visibleModalEditWord = true;
 			this.editedWordId = id;
@@ -354,23 +306,6 @@ export default {
 
 			this.wordsRuEditingList = editedWord['word_variants_ru'].length > 0 ? [...editedWord['word_variants_ru']] : [];
 			this.wordsEnEditingList = editedWord['word_variants_en'].length > 0 ? [...editedWord['word_variants_en']] : [];
-		},
-		updateWord() {
-			const request = {
-				wordsEn: this.wordsEnEditingList,
-				wordsRu: this.wordsRuEditingList,
-			};
-
-			this.loading = true;
-
-			// TODO: нормальный catch
-			this.axios.patch(`${process.env.VUE_APP_API_URL}/update-word?id=${this.editedWordId}`, request).then(response => {
-				// TODO: нормальный вывод сообщения успешно
-				console.log(response);
-				this.getWordsList();
-			});
-
-			this.loading = false;
 		},
 		addRuWordToInput() {
 			if (this.ruWord.length > 0) {
@@ -431,6 +366,44 @@ export default {
 		clearRuEditingInput() {
 			this.ruEditWord = '';
 		},
+	},
+	setup(context) {
+		const heightTable = window.innerHeight - 65*2;
+
+		const loading = ref(false);
+		const wordList = ref([]);
+
+		const visibleModalEditWord = ref(false);
+		const ruEditWord = ref('');
+		const enEditWord = ref('');
+
+		const {
+			getWordsList,
+			deleteWord,
+			wordsEnAddingList, wordsRuAddingList, addWordToList,
+			wordsRuEditingList, wordsEnEditingList, updateWord, editedWordId
+		} = useCRUDWordList(loading, wordList);
+
+		return {
+			heightTable,
+
+			getWordsList,
+			wordList,
+
+			addWordToList,
+			wordsRuAddingList,
+			wordsEnAddingList,
+
+			deleteWord,
+
+			visibleModalEditWord,
+			editedWordId,
+			wordsRuEditingList,
+			wordsEnEditingList,
+			ruEditWord,
+			enEditWord,
+			updateWord
+		}
 	}
 }
 </script>
