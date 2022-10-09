@@ -1,41 +1,37 @@
 <template>
 	<div class="dictionary-page py-5 px-5">
 		<div class="dictionary-page__col">
-			<v-card>
-				<v-table
-					fixed-header
-					fixed-footer
-					class="dictionary-page__table"
-					:height="heightTable"
-				>
-					<thead>
-						<tr>
-							<th
-								class="text-left"
-								width="85px"
-							>
-								Номер
-							</th>
-							<th
-								class="text-left"
-								width="50%"
-							>
-								На русском
-							</th>
-							<th
-								class="text-left"
-								width="50%"
-							>
-								На английском
-							</th>
-							<th
-								class="text-left"
-								width="60px"
-							>
-								Действия
-							</th>
-						</tr>
-					</thead>
+			<TableWrapper :classTable="'dictionary-page__table'">
+				<template #thead>
+					<tr>
+						<th
+							class="text-left"
+							width="85px"
+						>
+							Номер
+						</th>
+						<th
+							class="text-left"
+							width="50%"
+						>
+							На русском
+						</th>
+						<th
+							class="text-left"
+							width="50%"
+						>
+							На английском
+						</th>
+						<th
+							class="text-left"
+							width="60px"
+						>
+							Действия
+						</th>
+					</tr>
+				</template>
+
+				<template #tbody>
 					<tbody>
 						<!-- TODO: список отображать в lazy -->
 						<tr
@@ -65,21 +61,22 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<th class="text-left">Номер</th>
-							<th class="text-left">На русском</th>
-							<th class="text-left">На английском</th>
-							<th
-								class="text-left"
-								width="60px"
-							>
-								Действия
-							</th>
-						</tr>
-					</tfoot>
-				</v-table>
-			</v-card>
+				</template>
+
+				<template #tfoot>
+					<tr>
+						<th class="text-left">Номер</th>
+						<th class="text-left">На русском</th>
+						<th class="text-left">На английском</th>
+						<th
+							class="text-left"
+							width="60px"
+						>
+							Действия
+						</th>
+					</tr>
+				</template>
+			</TableWrapper>
 		</div>
 		<div class="dictionary-page__col">
 			<div class="dictionary-page__cards">
@@ -277,12 +274,11 @@
 
 <script>
 import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
+import TableWrapper from '@/components/shared/TableWrapper.vue';
 
 export default {
 	data() {
 		return {
-			heightTable: window.innerHeight - 65*2,
-
 			loading: false,
 			wordList: [],
 
@@ -301,7 +297,7 @@ export default {
 		}
 	},
 	components: {
-		SearchWords,
+		SearchWords, TableWrapper
 	},
 	mounted() {
 		this.getWordsList();
