@@ -105,29 +105,3 @@ export default {
 	},
 }
 </script>
-
-<style lang="scss" scoped>
-.test-page {
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	gap: 50px;
-
-	&__cards {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: auto;
-		gap: 35px;
-
-		&-title {
-			font-size: 1.65rem;
-		}
-	}
-
-	&__create {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: calc(100vh - 64px);
-	}
-}
-</style>
