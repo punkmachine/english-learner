@@ -1,0 +1,11 @@
+<template>
+	<v-card>
+		<v-card-title>Поиск</v-card-title>
+		<v-card-text>
+			<v-text-field
+				label="Поиск..."
+				append-inner-icon="mdi-magnify"
+			/>
+		</v-card-text>
+	</v-card>
+</template>

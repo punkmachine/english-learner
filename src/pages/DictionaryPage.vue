@@ -83,15 +83,7 @@
 		</div>
 		<div class="dictionary-page__col">
 			<div class="dictionary-page__cards">
-				<v-card>
-					<v-card-title>Поиск</v-card-title>
-					<v-card-text>
-						<v-text-field
-							label="Поиск..."
-							append-inner-icon="mdi-magnify"
-						/>
-					</v-card-text>
-				</v-card>
+				<SearchWords />
 				<v-card>
 					<v-card-title>Добавление слова</v-card-title>
 					<v-card-text>
@@ -284,6 +276,8 @@
 </template>
 
 <script>
+import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
+
 export default {
 	data() {
 		return {
@@ -305,6 +299,9 @@ export default {
 			ruEditWord: '',
 			enEditWord: '',
 		}
+	},
+	components: {
+		SearchWords,
 	},
 	mounted() {
 		this.getWordsList();
