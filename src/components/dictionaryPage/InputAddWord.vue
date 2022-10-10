@@ -4,6 +4,7 @@
 			<!-- TODO: убрать паддинги -->
 			<!-- TODO: сделать кнопку очистки -->
 			<!-- TODO: выровнять chip слева -->
+			<!-- TODO: удаление работает как-то странно -->
 			<v-chip-group column>
 				<v-chip
 					v-for="(word, index) in wordsList"
