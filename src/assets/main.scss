@@ -54,9 +54,11 @@
 }
 
 .test-page {
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	gap: 50px;
+	&__test {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 50px;
+	}
 
 	&__cards {
 		display: grid;

@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="test-page">
 		<div
 			v-if="isCreateTest"
 			class="test-page__create"
@@ -38,7 +38,7 @@
 
 		<div
 			v-else-if="!isFinishTest"
-			class="test-page py-5 px-5"
+			class="test-page__test py-5 px-5"
 		>
 			<div class="test-page__col">
 				<v-card>
@@ -108,7 +108,10 @@
 		<div
 			v-else
 		>
-			Finish
+			<div class="test-page__result">
+				<!-- Табличка ваши ответы - правильные ответы -->
+				<!-- Карточки: времени затрачено, в среднем времени на ответ, как это повлияло на статистику, правильных ответов из скольки -->
+			</div>
 		</div>
 	</div>
 </template>
@@ -126,10 +129,10 @@ export default {
 			{ id: 3, label: 'С русского на английский' },
 		];
 
-		const isCreateTest = ref(true);
+		const isCreateTest = ref(false);
 		const modeTest = ref(2);
 		const countWordsInTest = ref(3);
-		const isFinishTest = ref(false);
+		const isFinishTest = ref(true);
 
 		const testData = ref([]);
 		// TODO: loader
