@@ -4,56 +4,28 @@
 		<v-card-text>
 			<!-- TODO: добавление слова не только по пробелу, но и по запятой -->
 			<!-- TODO: добавить галочку иконкой, которая будет добавлять слово -->
-			<v-text-field
+			<InputAddWord
 				v-model.trim="ruWord"
 				@keypress.space="addRuWordToInput"
 				@click:clear="clearRuInput"
-				clearable
+				@clickDeleteWord="deleteWordInRuAddingList"
+				:wordsList="wordsRuAddingList"
 				label="Введите слово и его синонимы на русском..."
 				class="mb-3"
-			>
-				<!-- TODO: убрать паддинги -->
-				<!-- TODO: сделать кнопку очистки -->
-				<!-- TODO: выровнять chip слева -->
-				<template #details>
-					<v-chip-group column>
-						<v-chip
-							v-for="(word, index) in wordsRuAddingList"
-							:key="index"
-							@click:close="deleteWordInRuAddingList(index)"
-							closable
-							size="small"
-						>
-							{{ word }}
-						</v-chip>
-					</v-chip-group>
-				</template>
-			</v-text-field>
+			/>
 
-			<v-text-field
+			<InputAddWord
 				v-model.trim="enWord"
 				@keypress.space="addEnWordToInput"
 				@click:clear="clearEnInput"
 				@keypress.enter="addWordToList"
-				clearable
+				@clickDeleteWord="deleteWordInEnAddingList"
+				:wordsList="wordsEnAddingList"
 				label="Введите слово и его синонимы на английском..."
-			>
-				<template #details>
-					<v-chip-group column>
-						<v-chip
-							v-for="(word, index) in wordsEnAddingList"
-							:key="index"
-							@click:close="deleteWordInEnAddingList(index)"
-							closable
-							size="small"
-						>
-							{{ word }}
-						</v-chip>
-					</v-chip-group>
-				</template>
-			</v-text-field>
+			/>
 		</v-card-text>
 		<v-card-actions>
+			<!-- TODO: если нажимать enter и слова пустые, запрос происходит и выдает 200 -->
 			<v-btn
 				block
 				@click="addWordToList"
@@ -69,8 +41,12 @@
 
 <script>
 import { ref } from 'vue';
+import InputAddWord from '@/components/dictionaryPage/InputAddWord.vue';
 
 export default {
+	components: {
+		InputAddWord,
+	},
 	setup(props, { emit }) {
 		const enWord = ref('');
 		const ruWord = ref('');
