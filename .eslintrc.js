@@ -70,5 +70,7 @@ module.exports = {
     'vue/no-static-inline-styles': 'error', // запрещает использовать inline-style
     'vue/no-unused-refs': 'warn', // предупреждает о не используемых refs
     'vue/multi-word-component-names': 'off', // выключает требование составлять имена компонентов из нескольких слов
+    'quote-props': ["error", "consistent"], // чтобы кавычки в объявлениях ключей объектов были единого стиля
+    'no-unneeded-ternary': 'off', // как бы выключает лишние тернарные операторы, на самом деле мешая нужным 
   }
 }
