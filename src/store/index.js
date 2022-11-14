@@ -1,14 +1,13 @@
 import { createStore } from 'vuex';
 
+import dictionary from './dictionary';
+import statistics from './statistics';
+import tests from './tests';
+
 export default createStore({
-	state: {
-	},
-	getters: {
-	},
-	mutations: {
-	},
-	actions: {
-	},
 	modules: {
+		dictionary,
+		statistics,
+		tests
 	}
 });
