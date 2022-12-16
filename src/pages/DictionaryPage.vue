@@ -74,6 +74,8 @@
 <script>
 import { ref, inject, onMounted } from 'vue';
 
+import { loadDataWrapperHook } from '@/hooks/loadData';
+
 import TableWrapper from '@/components/shared/TableWrapper.vue';
 import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
 import WordList from '@/components/dictionaryPage/WordList.vue';
@@ -89,22 +91,19 @@ export default {
 	setup(props, context) {
 		const axios = inject('axios');
 
-		const loading = ref(false);
+		const { loading, loadData } = loadDataWrapperHook();
+
 		const wordList = ref([]);
 		const visibleModalEditWord = ref(false);
 		const editedWord = ref({});
 
 		function getWordsList() {
-			loading.value = true;
-
 			// TODO: loading статус - лоадер.
 			axios
 				.get(`${process.env.VUE_APP_API_URL}/word-list`)
 				.then(response => {
 					wordList.value = response.data;
 				});
-
-			loading.value = false;
 		}
 
 		function addWordToList(request) {
@@ -151,7 +150,7 @@ export default {
 		}
 
 		onMounted(() => {
-			getWordsList();
+			loadData(getWordsList);
 		});
 
 		return {
