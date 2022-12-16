@@ -1,7 +1,7 @@
 <template>
 	<div class="loader">
 		<v-progress-circular
-			color="#1E88E5"
+			color="primary"
 			indeterminate
 			:size="60"
 			:width="5"

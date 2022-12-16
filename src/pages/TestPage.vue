@@ -84,19 +84,19 @@
 			<div class="test-page__col">
 				<div class="test-page__cards">
 					<v-card class="py-3 px-3">
-						<v-card-title class="d-flex align-center gap-10">
+						<v-card-title class="d-flex align-center gap-2">
 							<span class="statistics-page__cards-title"> {{ currentWordIndex }}/{{ countWordsInTest }} </span>
 						</v-card-title>
 						<v-card-text>Пройдено</v-card-text>
 					</v-card>
 					<v-card class="py-3 px-3">
-						<v-card-title class="d-flex align-center gap-10">
+						<v-card-title class="d-flex align-center gap-2">
 							<span class="statistics-page__cards-title">0%</span>
 						</v-card-title>
 						<v-card-text>Пройдено</v-card-text>
 					</v-card>
 					<v-card class="py-3 px-3">
-						<v-card-title class="d-flex align-center gap-10">
+						<v-card-title class="d-flex align-center gap-2">
 							<span class="statistics-page__cards-title">10:03 минут</span>
 						</v-card-title>
 						<v-card-text>Времени затрачено</v-card-text>
