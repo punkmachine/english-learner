@@ -14,28 +14,16 @@
 			>
 				<template #thead>
 					<tr>
-						<th
-							class="text-left"
-							width="85px"
-						>
+						<th width="85px">
 							Номер
 						</th>
-						<th
-							class="text-left"
-							width="50%"
-						>
+						<th width="50%">
 							На русском
 						</th>
-						<th
-							class="text-left"
-							width="50%"
-						>
+						<th width="50%">
 							На английском
 						</th>
-						<th
-							class="text-left"
-							width="60px"
-						>
+						<th width="60px">
 							Действия
 						</th>
 					</tr>

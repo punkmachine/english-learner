@@ -10,9 +10,9 @@
 				>
 					<thead>
 						<tr>
-							<th class="text-left">#</th>
-							<th class="text-left">date</th>
-							<th class="text-left">result</th>
+							<th>#</th>
+							<th>date</th>
+							<th>result</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -28,9 +28,9 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<th class="text-left">#</th>
-							<th class="text-left">date</th>
-							<th class="text-left">result</th>
+							<th>#</th>
+							<th>date</th>
+							<th>result</th>
 						</tr>
 					</tfoot>
 				</v-table>
@@ -60,7 +60,7 @@
 						<span class="statistics-page__cards-title">+10%</span>
 					</v-card-title>
 					<v-divider />
-					<v-card-text>По сравнению с прошлой неделей</v-card-text>
+					<v-card-text>По сравнению c прошлой неделей</v-card-text>
 				</v-card>
 				<v-card class="py-3 px-3">
 					<v-card-title class="d-flex align-center gap-2">
