@@ -1,7 +1,10 @@
 <template>
 	<div class="dictionary-page py-5 px-5">
 		<div class="dictionary-page__col">
-			<TableWrapper :classTable="'dictionary-page__table'">
+			<TableWrapper
+				:classTable="'dictionary-page__table'"
+				:loading="loading"
+			>
 				<template #thead>
 					<tr>
 						<th
