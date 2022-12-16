@@ -2,7 +2,6 @@
 	<v-app>
 		<v-layout>
 			<v-app-bar
-				theme="dark"
 				height="65"
 				elevation="0"
 				:color="headerColor"

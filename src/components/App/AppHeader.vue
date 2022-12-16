@@ -3,11 +3,12 @@
 		<div class="d-flex justify-space-between">
 			<v-list class="el-bg-ultra-dark">
 				<v-list-item
-					:prepend-avatar="'./img/logo.png'"
 					title="English Learner"
 					link
-					:active="false"
 					to="/"
+					class="el-text-white"
+					:prepend-avatar="'./img/logo.png'"
+					:active="false"
 				/>
 			</v-list>
 

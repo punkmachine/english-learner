@@ -1,7 +1,17 @@
 <template>
 	<div class="dictionary-page py-5 px-5">
+		<Alert
+			v-model="errorData.visible"
+			color="error"
+			icon="$error"
+			:text="`Error Status: ${errorData.status}`"
+		/>
+
 		<div class="dictionary-page__col">
-			<TableWrapper :classTable="'dictionary-page__table'">
+			<TableWrapper
+				:classTable="'dictionary-page__table'"
+				:loading="loading"
+			>
 				<template #thead>
 					<tr>
 						<th
@@ -74,7 +84,11 @@
 <script>
 import { ref, inject, onMounted } from 'vue';
 
+import { loadDataWrapperHook } from '@/hooks/loadData';
+import { errorHandlerHook } from '@/hooks/errorHandler';
+
 import TableWrapper from '@/components/shared/TableWrapper.vue';
+import Alert from '@/components/shared/Alert.vue';
 import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
 import WordList from '@/components/dictionaryPage/WordList.vue';
 import AddWordCard from '@/components/dictionaryPage/AddWordCard.vue';
@@ -84,48 +98,49 @@ export default {
 	components: {
 		SearchWords, AddWordCard,
 		TableWrapper, WordList,
-		ModalEditCard
+		ModalEditCard, Alert
 	},
-	setup(props, context) {
+	setup() {
 		const axios = inject('axios');
 
-		const loading = ref(false);
+		const { loading, loadData } = loadDataWrapperHook();
+		const { errorData, errorHandler } = errorHandlerHook();
+
 		const wordList = ref([]);
 		const visibleModalEditWord = ref(false);
 		const editedWord = ref({});
 
 		function getWordsList() {
-			loading.value = true;
-
-			// TODO: loading статус - лоадер.
 			axios
 				.get(`${process.env.VUE_APP_API_URL}/word-list`)
 				.then(response => {
 					wordList.value = response.data;
 				});
-
-			loading.value = false;
 		}
 
 		function addWordToList(request) {
-			// TODO: обработка catch
 			axios
-				.post(`${process.env.VUE_APP_API_URL}/new-words`, request)
+				.post(`${process.env.VUE_APP_API_URL}/new-word`, request)
 				.then(response => {
 					// TODO: нормальный вывод сообщения успешно
-					console.log(response);
+					console.log('response >>>', response);
 					getWordsList();
+				})
+				.catch(error => {
+					errorHandler(error);
 				});
 		}
 
 		function deleteWord(id) {
-			// TODO: обработка catch
 			axios
 				.delete(`${process.env.VUE_APP_API_URL}/delete-word?id=${id}`)
 				.then(response => {
 					// TODO: нормальный вывод сообщения успешно
 					console.log(response);
 					getWordsList();
+				})
+				.catch(error => {
+					errorHandler(error);
 				});
 		}
 
@@ -135,7 +150,6 @@ export default {
 		}
 
 		function updateWord(request) {
-			// TODO: нормальный catch
 			axios
 				.patch(`${process.env.VUE_APP_API_URL}/update-word?id=${editedWord.value.id}`, request)
 				.then(response => {
@@ -143,6 +157,9 @@ export default {
 					console.log(response);
 					getWordsList();
 					closeModalEditWord();
+				})
+				.catch(error => {
+					errorHandler(error);
 				});
 		}
 
@@ -151,11 +168,12 @@ export default {
 		}
 
 		onMounted(() => {
-			getWordsList();
+			loadData(getWordsList);
 		});
 
 		return {
 			loading,
+			errorData,
 			wordList,
 			visibleModalEditWord,
 			editedWord,
