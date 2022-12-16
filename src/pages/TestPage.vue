@@ -25,8 +25,9 @@
 
 				<v-card-actions>
 					<v-btn
+						color="primary"
 						@click="startTest"
-						class="el-btn el-text-white w-50"
+						class="el-text-white w-50"
 						block
 						append-icon="mdi-arrow-right"
 					>
@@ -52,8 +53,9 @@
 					</v-card-text>
 					<v-card-actions class="d-flex justify-space-between">
 						<v-btn
-							class="el-btn el-text-white"
+							class="el-text-white"
 							prepend-icon="mdi-arrow-left-bold"
+							color="primary"
 							:disabled="currentWordIndex === 0"
 						>
 							Пред.
@@ -63,7 +65,8 @@
 							v-if="currentWordIndex < countWordsInTest - 1"
 							@click="nextWord"
 							:disabled="!currentWord"
-							class="el-btn el-text-white"
+							color="primary"
+							class="el-text-white"
 							append-icon="mdi-arrow-right-bold"
 						>
 							След.
@@ -73,7 +76,8 @@
 							v-else
 							@click="doneTest"
 							:disabled="!currentWord"
-							class="el-btn el-text-white"
+							color="primary"
+							class="el-text-white"
 							append-icon="mdi-check"
 						>
 							Готово

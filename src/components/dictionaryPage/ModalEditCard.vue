@@ -81,7 +81,8 @@
 		<v-card-actions>
 			<div class="d-flex justify-space-between w-100 px-2 mt-4">
 				<v-btn
-					class="el-btn el-text-white w-50"
+					color="primary"
+					class="el-text-white w-50"
 					prepend-icon="mdi-check"
 					@click="updateWord"
 					:disabled="wordsRuEditingList.length === 0 || wordsEnEditingList.length === 0"
@@ -89,8 +90,9 @@
 					Обновить
 				</v-btn>
 				<v-btn
+					color="primary"
 					@click="closeModalEditWord"
-					class="el-btn el-text-white w-50"
+					class="el-text-white w-50"
 					prepend-icon="mdi-close"
 				>
 					Закрыть

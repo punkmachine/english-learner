@@ -15,14 +15,16 @@
 					<v-btn
 						@click="editWordClick(word.id)"
 						icon="mdi-pencil"
-						class="el-btn el-text-white"
+						class="el-text-white"
 						size="x-small"
+						color="primary"
 					/>
 					<v-btn
 						@click="deleteWord(word.id)"
 						icon="mdi-delete"
-						class="el-btn el-text-white"
+						class="el-text-white"
 						size="x-small"
+						color="primary"
 					/>
 				</div>
 			</td>

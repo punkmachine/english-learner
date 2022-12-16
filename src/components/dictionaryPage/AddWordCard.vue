@@ -28,8 +28,9 @@
 			<!-- TODO: если нажимать enter и слова пустые, запрос происходит и выдает 200 -->
 			<v-btn
 				block
+				color="primary"
 				@click="addWordToList"
-				class="el-btn el-text-white"
+				class="el-text-white"
 				prepend-icon="mdi-plus-box"
 				:disabled="wordsEnAddingList.length === 0 || wordsRuAddingList.length === 0"
 			>
