@@ -4,7 +4,7 @@
 			<v-app-bar
 				height="65"
 				elevation="0"
-				:color="headerColor"
+				color="ultraDark"
 			>
 				<AppHeader />
 			</v-app-bar>
@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import { colors } from '@/utils/color';
 import AppSidebar from '@/components/App/AppSidebar.vue';
 import AppHeader from '@/components/App/AppHeader.vue';
 
@@ -29,11 +28,6 @@ export default {
 		AppSidebar,
 		AppHeader
 	},
-	data() {
-		return {
-			headerColor: colors.ultraDark,
-		}
-	}
 }
 </script>
 

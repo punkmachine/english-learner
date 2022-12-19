@@ -16,20 +16,8 @@
 				icon="mdi-account-circle"
 				size="x-large"
 				to="/profile"
-				:color="btnColor"
+				color="mainLightColor"
 			/>
 		</div>
 	</div>
 </template>
-
-<script>
-import { colors } from '@/utils/color';
-
-export default {
-	data() {
-		return {
-			btnColor: colors.mainLightColor,
-		}
-	}
-}
-</script>

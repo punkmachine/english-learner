@@ -2,7 +2,7 @@
 	<v-navigation-drawer
 		permanent
 		width="250"
-		:color="navigationDrawerColor"
+		color="dark"
 	>
 		<v-list
 			density="compact"
@@ -46,7 +46,7 @@
 				<v-btn
 					block
 					class="el-text-white"
-					:color="btnColors"
+					color="primary"
 					to="/test"
 				>
 					Начать тест
@@ -70,16 +70,3 @@
 		</template>
 	</v-navigation-drawer>
 </template>
-
-<script>
-import { colors } from '@/utils/color';
-
-export default {
-	data() {
-		return {
-			navigationDrawerColor: colors.dark,
-			btnColors: colors.linkColor,
-		}
-	}
-}
-</script>
