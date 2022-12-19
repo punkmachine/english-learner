@@ -5,6 +5,10 @@
 npm install
 ```
 
+### Add env.
+create `.env.development.local` file.
+add `VUE_APP_API_URL` variable.
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
