@@ -123,7 +123,7 @@
 import { ref, inject } from 'vue';
 
 export default {
-	setup(props, context) {
+	setup() {
 		const axios = inject('axios');
 
 		const modeTestItems = [
