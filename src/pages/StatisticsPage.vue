@@ -76,8 +76,8 @@
 					<LineChart
 						:chart-options="chartOptions"
 						:chart-data="chartData"
-						:chart-id="'line-chart'"
-						:dataset-id-key="'label'"
+						chart-id="line-chart"
+						dataset-id-key="label"
 					/>
 				</v-card>
 			</div>

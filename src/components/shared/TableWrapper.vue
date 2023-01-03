@@ -10,13 +10,13 @@
 			:height="heightTable"
 		>
 			<thead>
-				<slot name="thead"></slot>
+				<slot name="thead" />
 			</thead>
 
-			<slot name="tbody"></slot>
+			<slot name="tbody" />
 
 			<tfoot>
-				<slot name="tfoot"></slot>
+				<slot name="tfoot" />
 			</tfoot>
 		</v-table>
 	</v-card>

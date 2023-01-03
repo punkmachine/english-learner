@@ -7,7 +7,7 @@
 					link
 					to="/"
 					class="el-text-white"
-					:prepend-avatar="'./img/logo.png'"
+					prepend-avatar="./img/logo.png"
 					:active="false"
 				/>
 			</v-list>

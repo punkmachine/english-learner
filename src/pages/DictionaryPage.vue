@@ -9,7 +9,7 @@
 
 		<div class="dictionary-page__col">
 			<TableWrapper
-				:classTable="'dictionary-page__table'"
+				classTable="dictionary-page__table"
 				:loading="loading"
 			>
 				<template #thead>
@@ -98,6 +98,15 @@ export default {
 		const visibleModalEditWord = ref(false);
 		const editedWord = ref({});
 
+		function editWordClick(id) {
+			visibleModalEditWord.value = true;
+			editedWord.value = wordList.value.find(word => word.id === id);
+		}
+
+		function closeModalEditWord() {
+			visibleModalEditWord.value = false;
+		}
+
 		function getWordsList() {
 			axios
 				.get(`${process.env.VUE_APP_API_URL}/word-list`)
@@ -132,11 +141,6 @@ export default {
 				});
 		}
 
-		function editWordClick(id) {
-			visibleModalEditWord.value = true;
-			editedWord.value = wordList.value.find(word => word.id === id);
-		}
-
 		function updateWord(request) {
 			axios
 				.patch(`${process.env.VUE_APP_API_URL}/update-word?id=${editedWord.value.id}`, request)
@@ -149,10 +153,6 @@ export default {
 				.catch(error => {
 					errorHandler(error);
 				});
-		}
-
-		function closeModalEditWord() {
-			visibleModalEditWord.value = false;
 		}
 
 		onMounted(() => {

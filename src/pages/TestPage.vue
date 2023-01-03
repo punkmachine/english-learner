@@ -144,6 +144,7 @@ export default {
 		const currentWord = ref('');
 		const currentWordIndex = ref(0);
 
+		// eslint-disable-next-line prefer-const
 		let requestTest = [];
 
 		function startTest() {
