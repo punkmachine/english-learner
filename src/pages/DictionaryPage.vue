@@ -15,7 +15,7 @@
 				<template #thead>
 					<tr>
 						<th width="85px">
-							Номер
+							{{ $t('shared.tables.numberColumn') }}
 						</th>
 						<th width="50%">
 							На русском
