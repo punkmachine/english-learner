@@ -1,16 +1,17 @@
 module.exports = {
-  root: true,
-  env: {
+  "root": true,
+  "env": {
     node: true
   },
   'extends': [
     'plugin:vue/vue3-essential',
-    'eslint:recommended'
+    'eslint:recommended',
+    // 'plugin:@intlify/vue-i18n/recommended'
   ],
-  parserOptions: {
+  "parserOptions": {
     parser: '@babel/eslint-parser'
   },
-  rules: {
+  "rules": {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off', // нет консоль логам в проде!
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off', // нет дебаггеру!
     'no-var': 'error', // нельзя использоваь var
@@ -71,7 +72,7 @@ module.exports = {
     'vue/no-unused-refs': 'warn', // предупреждает о не используемых refs
     'vue/multi-word-component-names': 'off', // выключает требование составлять имена компонентов из нескольких слов
     'quote-props': ["error", "consistent"], // чтобы кавычки в объявлениях ключей объектов были единого стиля
-    'no-unneeded-ternary': 'off', // как бы выключает лишние тернарные операторы, на самом деле мешая нужным 
+    'no-unneeded-ternary': 'off', // как бы выключает лишние тернарные операторы, на самом деле мешая нужным
     'no-unreachable-loop': 'error', // запрещает циклы, которые повторяются всего один раз.
     'no-constant-condition': 'error', // запрещает постоянное значение в условных конструкциях (if (true) {})
     'array-callback-return': 'error', // выдает ошибку, если в методах массива, предусматривающих return, он не обнаружен
@@ -79,8 +80,6 @@ module.exports = {
     'no-cond-assign': 'error', // запрещает оператор присванивания в условных конструкциях
     'no-const-assign': 'error', // сразу выдает ошибку о попытке изменить константу в коде
     'no-dupe-args': 'error', // запрещает дублирование имен аргументов в функции
-    'no-duplicate-imports': 'error', // запрещает дублирующиеся импорты
-    'no-duplicate-case': 'error', // запрещает дублирующиеся условия в switch case.
     'no-fallthrough': 'error', // выдает ошибку, если в case не встретилось break/return/throw
     'no-ex-assign': 'error', // запрещает переопределение error в catch-блоке
     'no-empty-pattern': 'error', // запрещает пустые шаблоны деструктурирования.
