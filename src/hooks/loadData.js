@@ -10,8 +10,9 @@ function loadDataWrapperHook() {
 	}
 
 	return {
-		loading, loadData
-	}
+		loading,
+		loadData,
+	};
 }
 
 export { loadDataWrapperHook };

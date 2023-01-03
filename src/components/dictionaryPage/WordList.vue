@@ -6,10 +6,10 @@
 			:key="word.id"
 			:class="{'dictionary-page__tr-bg': index % 2 === 0}"
 		>
-			<td> {{ index + 1 }} </td>
+			<td>{{ index + 1 }}</td>
 			<!-- TODO: сделать слова с больших букв -->
-			<td> {{ word['word_variants_ru'].join(', ') }} </td>
-			<td> {{ word['word_variants_en'].join(', ') }} </td>
+			<td>{{ word['word_variants_ru'].join(', ') }}</td>
+			<td>{{ word['word_variants_en'].join(', ') }}</td>
 			<td>
 				<div class="dictionary-page__btn-group d-flex">
 					<v-btn

@@ -11,5 +11,5 @@ export default createStore({
 		dictionary,
 		statistics,
 		tests,
-	}
+	},
 });

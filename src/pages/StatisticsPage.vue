@@ -21,7 +21,7 @@
 							:key="index"
 							:class="{'statistics-page__tr-bg': index % 2 !== 0}"
 						>
-							<td> {{ index }} </td>
+							<td>{{ index }}</td>
 							<td>10.10.10</td>
 							<td>20/30</td>
 						</tr>

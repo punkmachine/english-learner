@@ -17,15 +17,9 @@
 						<th width="85px">
 							{{ $t('shared.tables.numberColumn') }}
 						</th>
-						<th width="50%">
-							На русском
-						</th>
-						<th width="50%">
-							На английском
-						</th>
-						<th width="60px">
-							Действия
-						</th>
+						<th width="50%">На русском</th>
+						<th width="50%">На английском</th>
+						<th width="60px">Действия</th>
 					</tr>
 				</template>
 

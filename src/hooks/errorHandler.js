@@ -11,13 +11,13 @@ function errorHandlerHook() {
 	function errorHandler(error) {
 		errorData.value = {
 			visible: true,
-			status: error.response.status
+			status: error.response.status,
 		};
 
 		timerErrorHide = setTimeout(() => {
 			errorData.value = {
 				visible: false,
-				status: ''
+				status: '',
 			};
 
 			clearTimeout(timerErrorHide);

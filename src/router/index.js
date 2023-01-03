@@ -5,27 +5,27 @@ const routes = [
 	{
 		path: '/',
 		name: 'home',
-		component: HomePage
+		component: HomePage,
 	},
 	{
 		path: '/statistics',
 		name: 'statistics',
-		component: () => import(/* webpackChunkName: "statistics" */ '../pages/StatisticsPage.vue')
+		component: () => import(/* webpackChunkName: "statistics" */ '../pages/StatisticsPage.vue'),
 	},
 	{
 		path: '/test',
 		name: 'test',
-		component: () => import(/* webpackChunkName: "test" */ '../pages/TestPage.vue')
+		component: () => import(/* webpackChunkName: "test" */ '../pages/TestPage.vue'),
 	},
 	{
 		path: '/dictionary',
 		name: 'dictionary',
-		component: () => import(/* webpackChunkName: "dictionary" */ '../pages/DictionaryPage.vue')
+		component: () => import(/* webpackChunkName: "dictionary" */ '../pages/DictionaryPage.vue'),
 	},
 	{
 		path: '/profile',
 		name: 'profile',
-		component: () => import(/* webpackChunkName: "profile" */ '../pages/ProfilePage.vue')
+		component: () => import(/* webpackChunkName: "profile" */ '../pages/ProfilePage.vue'),
 	},
 	{
 		path: '/cards',
@@ -35,13 +35,13 @@ const routes = [
 	{
 		path: '/about',
 		name: 'about',
-		component: () => import(/* webpackChunkName: "about" */ '../pages/AboutPage.vue')
-	}
+		component: () => import(/* webpackChunkName: "about" */ '../pages/AboutPage.vue'),
+	},
 ];
 
 const router = createRouter({
 	history: createWebHistory(process.env.BASE_URL),
-	routes
+	routes,
 });
 
 export default router;

@@ -1,3 +1,3 @@
 export const getters = {
-	getLanguage: (state) => state.language,
+	getLanguage: state => state.language,
 };

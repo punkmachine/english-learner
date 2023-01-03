@@ -25,14 +25,8 @@ const i18n = createI18n({
 	fallbackLocale: 'en',
 	messages: {
 		ru,
-		en
-	}
+		en,
+	},
 });
 
-app.use(i18n)
-	.use(router)
-	.use(store)
-	.use(vuetify)
-	.use(VueAxios, axios)
-	.provide('axios', app.config.globalProperties.axios)
-	.mount('#app');
+app.use(i18n).use(router).use(store).use(vuetify).use(VueAxios, axios).provide('axios', app.config.globalProperties.axios).mount('#app');

@@ -10,11 +10,11 @@
 </template>
 
 <style lang="scss" scoped>
-	.loader {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
-		width: 100%;
-	}
+.loader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
 </style>

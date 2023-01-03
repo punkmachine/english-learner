@@ -9,7 +9,7 @@ const elTheme = {
 		ultraDark: '#2B2B2B',
 		dark: '#3F3F3F',
 		mainLightColor: '#f3f3f3',
-	}
+	},
 };
 
 export default createVuetify({
@@ -17,6 +17,6 @@ export default createVuetify({
 		defaultTheme: 'elTheme',
 		themes: {
 			elTheme,
-		}
-	}
+		},
+	},
 });
