@@ -10,34 +10,34 @@
 		>
 			<v-list-item
 				prepend-icon="mdi-book-alphabet"
-				title="Словарь"
 				class="el-text-white"
 				link
 				to="/dictionary"
+				:title="$t('layout.navigation.dictionary')"
 			/>
 
 			<v-list-item
 				prepend-icon="mdi-chart-areaspline"
-				title="Статистика"
 				class="el-text-white"
 				link
 				to="/statistics"
+				:title="$t('layout.navigation.statistics')"
 			/>
 
 			<v-list-item
 				prepend-icon="mdi-cards"
 				class="el-text-white"
 				link
-				title="Карточки"
 				to="/cards"
+				:title="$t('layout.navigation.cards')"
 			/>
 
 			<v-list-item
 				prepend-icon="mdi-information"
 				class="el-text-white"
 				link
-				title="О проекте"
 				to="/about"
+				:title="$t('layout.navigation.about')"
 			/>
 		</v-list>
 
@@ -49,7 +49,7 @@
 					color="primary"
 					to="/test"
 				>
-					Начать тест
+					{{ $t('layout.startTest') }}
 				</v-btn>
 
 				<v-divider />

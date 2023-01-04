@@ -5,21 +5,21 @@
 			class="test-page__create"
 		>
 			<v-card min-width="350px">
-				<v-card-title class="py-2 px-4">Настройки теста</v-card-title>
+				<v-card-title class="py-2 px-4">{{ $t('testPage.cardTitle') }}</v-card-title>
 				<v-divider />
 
 				<v-card-text class="pa-4">
 					<v-select
 						v-model="countWordsInTest"
 						:items="[3, 10, 20, 25, 50, 100]"
-						label="Выберите количество слов в тесте"
+						:label="$t('testPage.countWordsInTest')"
 					/>
 					<v-select
 						v-model="modeTest"
 						:items="modeTestItems"
 						item-title="label"
 						item-value="id"
-						label="Выберите режим перевода"
+						:label="$t('testPage.testMode')"
 					/>
 				</v-card-text>
 
@@ -31,7 +31,7 @@
 						block
 						append-icon="mdi-arrow-right"
 					>
-						Старт
+						{{ $t('shared.controls.start') }}
 					</v-btn>
 				</v-card-actions>
 			</v-card>
@@ -43,12 +43,12 @@
 		>
 			<div class="test-page__col">
 				<v-card>
-					<v-card-title>Переведите слово: {{ getWord() }} </v-card-title>
+					<v-card-title>{{ $t('testPage.translateWord') }} {{ getWord() }} </v-card-title>
 					<v-card-text>
 						<v-text-field
 							v-model.trim="currentWord"
 							@keypress.enter="currentWordIndex < countWordsInTest - 1 ? nextWord() : doneTest()"
-							label="Слово на русском..."
+							:label="$t('testPage.wordInRussian')"
 						/>
 					</v-card-text>
 					<v-card-actions class="d-flex justify-space-between">
@@ -58,7 +58,7 @@
 							color="primary"
 							:disabled="currentWordIndex === 0"
 						>
-							Пред.
+							{{ $t('shared.controls..prev') }}
 						</v-btn>
 
 						<v-btn
@@ -69,7 +69,7 @@
 							class="el-text-white"
 							append-icon="mdi-arrow-right-bold"
 						>
-							След.
+							{{ $t('shared.controls..next') }}
 						</v-btn>
 
 						<v-btn
@@ -80,7 +80,7 @@
 							class="el-text-white"
 							append-icon="mdi-check"
 						>
-							Готово
+							{{ $t('shared.controls..ready') }}
 						</v-btn>
 					</v-card-actions>
 				</v-card>
@@ -91,19 +91,19 @@
 						<v-card-title class="d-flex align-center gap-2">
 							<span class="statistics-page__cards-title"> {{ currentWordIndex }}/{{ countWordsInTest }} </span>
 						</v-card-title>
-						<v-card-text>Пройдено</v-card-text>
+						<v-card-text>{{ $t('testPage.passed') }}</v-card-text>
 					</v-card>
 					<v-card class="py-3 px-3">
 						<v-card-title class="d-flex align-center gap-2">
 							<span class="statistics-page__cards-title">0%</span>
 						</v-card-title>
-						<v-card-text>Пройдено</v-card-text>
+						<v-card-text>{{ $t('testPage.passed') }}</v-card-text>
 					</v-card>
 					<v-card class="py-3 px-3">
 						<v-card-title class="d-flex align-center gap-2">
-							<span class="statistics-page__cards-title">10:03 минут</span>
+							<span class="statistics-page__cards-title">10:03 {{ $t('testPage.minutes') }}</span>
 						</v-card-title>
-						<v-card-text>Времени затрачено</v-card-text>
+						<v-card-text>{{ $t('testPage.timeSpent') }}</v-card-text>
 					</v-card>
 				</div>
 			</div>
@@ -126,6 +126,7 @@ export default {
 	setup() {
 		const axios = inject('axios');
 
+		// TODO: перевод
 		const modeTestItems = [
 			{ id: 1, label: 'Вперемешку' },
 			{ id: 2, label: 'С английского на русский' },

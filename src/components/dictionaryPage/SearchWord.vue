@@ -1,9 +1,9 @@
 <template>
 	<v-card>
-		<v-card-title>Поиск</v-card-title>
+		<v-card-title>{{ $t('shared.search') }}</v-card-title>
 		<v-card-text>
 			<v-text-field
-				label="Поиск..."
+				:label="`${$t('shared.search')}...`"
 				append-inner-icon="mdi-magnify"
 			/>
 		</v-card-text>

@@ -3,20 +3,20 @@
 		max-width="500px"
 		min-width="500px"
 	>
-		<v-card-title class="py-2 px-4">Редактирование слова</v-card-title>
+		<v-card-title class="py-2 px-4">{{ $t('dictionaryPage.editWord') }}</v-card-title>
 		<v-divider />
 
 		<v-card-text class="pa-4">
 			<div class="d-flex flex-column gap-3">
 				<div>
-					<strong>Слова на русском:</strong>
+					<strong>{{ $t('dictionaryPage.wordInRussian') }}</strong>
 					<div class="d-flex align-center">
 						<v-text-field
 							v-model.trim="ruEditWord"
 							@keypress.space="addRuWordToInputEditing"
 							@click:clear="clearRuEditingInput"
 							clearable
-							label="Введите слово и его синонимы на русском..."
+							:label="$t('dictionaryPage.writeWordInRussian')"
 						>
 							<!-- TODO: убрать паддинги -->
 							<!-- TODO: выровнять chip слева -->
@@ -44,7 +44,7 @@
 				</div>
 
 				<div>
-					<strong>Слова на английском:</strong>
+					<strong>{{ $t('dictionaryPage.wordInEnglish') }}</strong>
 					<div class="d-flex align-center">
 						<v-text-field
 							v-model.trim="enEditWord"
@@ -52,7 +52,7 @@
 							@keypress.enter="updateWord"
 							@click:clear="clearEnEditingInput"
 							clearable
-							label="Введите слово и его синонимы на английском..."
+							:label="$t('dictionaryPage.writeWordInEnglish')"
 						>
 							<template #details>
 								<v-chip-group column>
@@ -87,7 +87,7 @@
 					@click="updateWord"
 					:disabled="wordsRuEditingList.length === 0 || wordsEnEditingList.length === 0"
 				>
-					Обновить
+					{{ $t('shared.controls.update') }}
 				</v-btn>
 				<v-btn
 					color="primary"
@@ -95,7 +95,7 @@
 					class="el-text-white w-50"
 					prepend-icon="mdi-close"
 				>
-					Закрыть
+					{{ $t('shared.controls.close') }}
 				</v-btn>
 			</div>
 		</v-card-actions>

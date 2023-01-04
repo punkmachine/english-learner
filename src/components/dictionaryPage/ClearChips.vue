@@ -4,6 +4,6 @@
 			start
 			icon="mdi-close"
 		/>
-		Очистить
+		{{ $t('shared.controls.clear') }}
 	</v-chip>
 </template>

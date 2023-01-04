@@ -13,14 +13,7 @@
 				:loading="loading"
 			>
 				<template #thead>
-					<tr>
-						<th width="85px">
-							{{ $t('shared.tables.numberColumn') }}
-						</th>
-						<th width="50%">На русском</th>
-						<th width="50%">На английском</th>
-						<th width="60px">Действия</th>
-					</tr>
+					<NamingColumn />
 				</template>
 
 				<template #tbody>
@@ -32,17 +25,7 @@
 				</template>
 
 				<template #tfoot>
-					<tr>
-						<th class="text-left">Номер</th>
-						<th class="text-left">На русском</th>
-						<th class="text-left">На английском</th>
-						<th
-							class="text-left"
-							width="60px"
-						>
-							Действия
-						</th>
-					</tr>
+					<NamingColumn />
 				</template>
 			</TableWrapper>
 		</div>
@@ -75,12 +58,14 @@ import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
 import WordList from '@/components/dictionaryPage/WordList.vue';
 import AddWordCard from '@/components/dictionaryPage/AddWordCard.vue';
 import ModalEditCard from '@/components/dictionaryPage/ModalEditCard.vue';
+import NamingColumn from '@/components/dictionaryPage/NamingColumn.vue';
 
 export default {
 	components: {
 		SearchWords, AddWordCard,
 		TableWrapper, WordList,
-		ModalEditCard, Alert
+		ModalEditCard, Alert,
+		NamingColumn
 	},
 	setup() {
 		const axios = inject('axios');

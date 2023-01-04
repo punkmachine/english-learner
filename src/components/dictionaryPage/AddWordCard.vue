@@ -1,6 +1,6 @@
 <template>
 	<v-card>
-		<v-card-title>Добавление слова</v-card-title>
+		<v-card-title>{{ $t('dictionaryPage.addWord') }}</v-card-title>
 		<v-card-text>
 			<!-- TODO: добавление слова не только по пробелу, но и по запятой -->
 			<!-- TODO: добавить галочку иконкой, которая будет добавлять слово -->
@@ -10,7 +10,7 @@
 				@click:clear="clearRuInput"
 				@clickDeleteWord="deleteWordInRuAddingList"
 				:wordsList="wordsRuAddingList"
-				label="Введите слово и его синонимы на русском..."
+				:label="$t('dictionaryPage.writeWordInRussian')"
 				class="mb-3"
 			/>
 
@@ -21,7 +21,7 @@
 				@keypress.enter="addWordToList"
 				@clickDeleteWord="deleteWordInEnAddingList"
 				:wordsList="wordsEnAddingList"
-				label="Введите слово и его синонимы на английском..."
+				:label="$t('dictionaryPage.writeWordInRussian')"
 			/>
 		</v-card-text>
 		<v-card-actions>
@@ -34,7 +34,7 @@
 				prepend-icon="mdi-plus-box"
 				:disabled="wordsEnAddingList.length === 0 || wordsRuAddingList.length === 0"
 			>
-				Добавить
+				{{ $t('shared.controls.add') }}
 			</v-btn>
 		</v-card-actions>
 	</v-card>
