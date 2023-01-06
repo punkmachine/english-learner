@@ -6,21 +6,21 @@
 			<!-- TODO: выровнять chip слева -->
 			<!-- TODO: удаление работает как-то странно -->
 			<v-chip-group column>
-				<v-chip
+				<Chip
 					v-for="(word, index) in wordsList"
 					:key="index"
 					@click:close="clickDeleteWord(index)"
-					closable
-					size="small"
 				>
 					{{ word }}
-				</v-chip>
+				</Chip>
 			</v-chip-group>
 		</template>
 	</v-text-field>
 </template>
 
 <script>
+import Chip from '@/components/shared/Chip.vue';
+
 export default {
 	props: {
 		wordsList: {
@@ -28,6 +28,7 @@ export default {
 			required: true,
 		}
 	},
+	components: { Chip },
 	setup(props, { emit }) {
 		function clickDeleteWord(index) {
 			emit('clickDeleteWord', index);
