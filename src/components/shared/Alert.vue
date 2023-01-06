@@ -1,13 +1,12 @@
 <template>
 	<transition name="fade">
 		<v-alert
-			:color="color"
-			:icon="icon"
-			closable
+			v-if="visibleAlert"
 			max-height="65px"
 			max-width="400px"
 			position="fixed"
 			class="el-alert"
+			:type="type"
 		>
 			{{ text }}
 		</v-alert>
@@ -15,20 +14,30 @@
 </template>
 
 <script>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+
 export default {
-	props: {
-		color: {
-			type: String,
-			required: true,
-		},
-		icon: {
-			type: String,
-			required: true,
-		},
-		text: {
-			type: String,
-			required: true,
-		},
-	},
+	setup() {
+		const store = useStore();
+
+		const visibleAlert = computed(() => {
+			return store.getters.getVisibleAlert;
+		});
+
+		const text = computed(() => {
+			return store.getters.getAlertText;
+		});
+
+		const type = computed(() => {
+			return store.getters.getAlertType;
+		});
+
+		return {
+			visibleAlert,
+			text,
+			type
+		}
+	}
 };
 </script>

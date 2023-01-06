@@ -1,12 +1,5 @@
 <template>
 	<div class="dictionary-page py-5 px-5">
-		<Alert
-			v-model="errorData.visible"
-			color="error"
-			icon="$error"
-			:text="`Error Status: ${errorData.status}`"
-		/>
-
 		<div class="dictionary-page__col">
 			<TableWrapper
 				classTable="dictionary-page__table"
@@ -53,7 +46,6 @@ import { loadDataWrapperHook } from '@/hooks/loadData';
 import { errorHandlerHook } from '@/hooks/errorHandler';
 
 import TableWrapper from '@/components/shared/TableWrapper.vue';
-import Alert from '@/components/shared/Alert.vue';
 import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
 import WordList from '@/components/dictionaryPage/WordList.vue';
 import AddWordCard from '@/components/dictionaryPage/AddWordCard.vue';
@@ -64,14 +56,14 @@ export default {
 	components: {
 		SearchWords, AddWordCard,
 		TableWrapper, WordList,
-		ModalEditCard, Alert,
+		ModalEditCard,
 		NamingColumn
 	},
 	setup() {
 		const axios = inject('axios');
 
 		const { loading, loadData } = loadDataWrapperHook();
-		const { errorData, errorHandler } = errorHandlerHook();
+		const { errorHandler } = errorHandlerHook();
 
 		const wordList = ref([]);
 		const visibleModalEditWord = ref(false);
@@ -96,7 +88,7 @@ export default {
 
 		function addWordToList(request) {
 			axios
-				.post(`${process.env.VUE_APP_API_URL}/new-word`, request)
+				.post(`${process.env.VUE_APP_API_URL}/new-wor`, request)
 				.then(response => {
 					// TODO: нормальный вывод сообщения успешно
 					console.log('response >>>', response);
@@ -140,7 +132,6 @@ export default {
 
 		return {
 			loading,
-			errorData,
 			wordList,
 			visibleModalEditWord,
 			editedWord,

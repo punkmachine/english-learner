@@ -1,5 +1,5 @@
 export const mutations = {
-	setLanguage(state, newLang) {
-		state.language = newLang;
+	setLanguage(state, language) {
+		state.language = language;
 	},
 };

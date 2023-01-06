@@ -13,6 +13,7 @@
 
 			<v-main class="wrapper">
 				<router-view />
+				<Alert />
 			</v-main>
 		</v-layout>
 	</v-app>
@@ -21,12 +22,14 @@
 <script>
 import AppSidebar from '@/components/App/AppSidebar.vue';
 import AppHeader from '@/components/App/AppHeader.vue';
+import Alert from '@/components/shared/Alert.vue';
 
 export default {
 	name: 'App',
 	components: {
 		AppSidebar,
-		AppHeader
+		AppHeader,
+		Alert
 	},
 }
 </script>

@@ -1,25 +1,20 @@
-import { ref, onBeforeUnmount } from 'vue';
+import { onBeforeUnmount } from 'vue';
+import { useStore } from 'vuex';
+import typesAlert from '@/constants/typesAlert';
 
 function errorHandlerHook() {
-	const errorData = ref({
-		visible: false,
-		status: null,
-	});
+	const store = useStore();
 
 	let timerErrorHide = null;
 
 	function errorHandler(error) {
-		errorData.value = {
-			visible: true,
-			status: error.response.status,
-		};
+		store.dispatch('changeAlertData', {
+			text: error.code,
+			type: typesAlert.error,
+		});
 
 		timerErrorHide = setTimeout(() => {
-			errorData.value = {
-				visible: false,
-				status: '',
-			};
-
+			store.dispatch('removeAlertData');
 			clearTimeout(timerErrorHide);
 		}, 3000);
 	}
@@ -28,7 +23,7 @@ function errorHandlerHook() {
 		clearTimeout(timerErrorHide);
 	});
 
-	return { errorData, errorHandler };
+	return { errorHandler };
 }
 
 export { errorHandlerHook };
