@@ -74,8 +74,8 @@
 			<div class="statistics-page__chart mt-5">
 				<v-card class="py-3 px-3">
 					<LineChart
-						:chart-options="chartOptions"
-						:chart-data="chartData"
+						:options="chartOptions"
+						:data="chartData"
 						chart-id="line-chart"
 						dataset-id-key="label"
 					/>
@@ -86,26 +86,26 @@
 </template>
 
 <script>
-import { Line } from 'vue-chartjs';
 import {
 	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
 	Title,
 	Tooltip,
-	Legend,
-	LineElement,
-	LinearScale,
-	CategoryScale,
-	PointElement
-} from 'chart.js';
+	Legend
+} from 'chart.js'
+import { Line } from 'vue-chartjs'
 
 ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
 	Title,
 	Tooltip,
-	Legend,
-	LineElement,
-	LinearScale,
-	CategoryScale,
-	PointElement
+	Legend
 );
 
 export default {
@@ -117,6 +117,7 @@ export default {
 			responsive: true,
 			maintainAspectRatio: false
 		};
+
 		const chartData = {
 			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 			datasets: [
@@ -127,6 +128,7 @@ export default {
 				}
 			]
 		};
+
 		const heightTable = window.innerHeight - 65*2;
 
 		return {
