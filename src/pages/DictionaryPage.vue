@@ -88,7 +88,7 @@ export default {
 
 		function addWordToList(request) {
 			axios
-				.post(`${process.env.VUE_APP_API_URL}/new-word`, request)
+				.post(`${process.env.VUE_APP_API_URL}/new-words`, request)
 				.then(response => {
 					// TODO: нормальный вывод сообщения успешно
 					console.log('response >>>', response);
