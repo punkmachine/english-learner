@@ -43,7 +43,7 @@
 import { ref, inject, onMounted } from 'vue';
 
 import { loadDataWrapperHook } from '@/hooks/loadData';
-import { errorHandlerHook } from '@/hooks/errorHandler';
+import { alertHandlerHook } from '@/hooks/alertHandler';
 
 import TableWrapper from '@/components/shared/TableWrapper.vue';
 import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
@@ -63,7 +63,7 @@ export default {
 		const axios = inject('axios');
 
 		const { loading, loadData } = loadDataWrapperHook();
-		const { errorHandler } = errorHandlerHook();
+		const { errorHandler, successHandler } = alertHandlerHook();
 
 		const wordList = ref([]);
 		const visibleModalEditWord = ref(false);
@@ -83,15 +83,18 @@ export default {
 				.get(`${process.env.VUE_APP_API_URL}/word-list`)
 				.then(response => {
 					wordList.value = response.data;
+				})
+				.catch(error => {
+					errorHandler(error);
 				});
 		}
 
 		function addWordToList(request) {
 			axios
 				.post(`${process.env.VUE_APP_API_URL}/new-words`, request)
-				.then(response => {
-					// TODO: нормальный вывод сообщения успешно
-					console.log('response >>>', response);
+				.then(() => {
+					// todo: перевод
+					successHandler('Слово успешно добавлено');
 					getWordsList();
 				})
 				.catch(error => {
@@ -102,9 +105,9 @@ export default {
 		function deleteWord(id) {
 			axios
 				.delete(`${process.env.VUE_APP_API_URL}/delete-word?id=${id}`)
-				.then(response => {
-					// TODO: нормальный вывод сообщения успешно
-					console.log(response);
+				.then(() => {
+					// todo: перевод
+					successHandler('Слово успешно удалено');
 					getWordsList();
 				})
 				.catch(error => {
@@ -115,9 +118,9 @@ export default {
 		function updateWord(request) {
 			axios
 				.patch(`${process.env.VUE_APP_API_URL}/update-word?id=${editedWord.value.id}`, request)
-				.then(response => {
-					// TODO: нормальный вывод сообщения успешно
-					console.log(response);
+				.then(() => {
+					// todo: перевод
+					successHandler('Слово успешно обновлено');
 					getWordsList();
 					closeModalEditWord();
 				})
