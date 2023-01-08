@@ -288,6 +288,8 @@ module.exports = {
 				attributes: {},
 				ignoreNodes: [],
 				ignoreText: [],
+				// TODO: игнорирование чисел и символов в regex
+				ignorePattern: '',
 			},
 		], // предупреждает о том, что используется обычный текст, а не переведённый ключ в коде
 		'@intlify/vue-i18n/no-html-messages': 'error', // запрет на использование html в сообщениях перевода

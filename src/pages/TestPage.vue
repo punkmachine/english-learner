@@ -25,11 +25,11 @@
 
 				<v-card-actions>
 					<v-btn
-						color="primary"
-						@click="startTest"
-						class="el-text-white w-50"
 						block
+						color="primary"
+						class="el-text-white w-50"
 						append-icon="mdi-arrow-right"
+						@click="startTest"
 					>
 						{{ $t('shared.controls.start') }}
 					</v-btn>
@@ -47,8 +47,8 @@
 					<v-card-text>
 						<v-text-field
 							v-model.trim="currentWord"
-							@keypress.enter="currentWordIndex < countWordsInTest - 1 ? nextWord() : doneTest()"
 							:label="$t('testPage.wordInRussian')"
+							@keypress.enter="currentWordIndex < countWordsInTest - 1 ? nextWord() : doneTest()"
 						/>
 					</v-card-text>
 					<v-card-actions class="d-flex justify-space-between">
@@ -63,22 +63,22 @@
 
 						<v-btn
 							v-if="currentWordIndex < countWordsInTest - 1"
-							@click="nextWord"
 							:disabled="!currentWord"
 							color="primary"
 							class="el-text-white"
 							append-icon="mdi-arrow-right-bold"
+							@click="nextWord"
 						>
 							{{ $t('shared.controls..next') }}
 						</v-btn>
 
 						<v-btn
 							v-else
-							@click="doneTest"
 							:disabled="!currentWord"
 							color="primary"
 							class="el-text-white"
 							append-icon="mdi-check"
+							@click="doneTest"
 						>
 							{{ $t('shared.controls..ready') }}
 						</v-btn>
