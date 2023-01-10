@@ -44,6 +44,7 @@ import { ref, inject, onMounted } from 'vue';
 
 import { loadDataWrapperHook } from '@/hooks/loadData';
 import { alertHandlerHook } from '@/hooks/alertHandler';
+import { tryCatchWrapperHook } from '@/hooks/tryCatchWrapper';
 
 import TableWrapper from '@/components/shared/TableWrapper.vue';
 import SearchWords from '@/components/dictionaryPage/SearchWord.vue';
@@ -63,7 +64,8 @@ export default {
 		const axios = inject('axios');
 
 		const { loading, loadData } = loadDataWrapperHook();
-		const { errorHandler, successHandler } = alertHandlerHook();
+		const { successHandler } = alertHandlerHook();
+		const { tryCatchWrapper } = tryCatchWrapperHook();
 
 		const wordList = ref([]);
 		const visibleModalEditWord = ref(false);
@@ -78,49 +80,41 @@ export default {
 			visibleModalEditWord.value = false;
 		}
 
-		async function getWordsList() {
-			try {
+		function getWordsList() {
+			tryCatchWrapper(async () => {
 				const response = await axios.get(`${process.env.VUE_APP_API_URL}/word-list`);
 				wordList.value = response.data;
-			} catch (error) {
-				errorHandler(error);
-			}
+			});
 		}
 
-		async function addWordToList(request) {
-			try {
+		function addWordToList(request) {
+			tryCatchWrapper(async () => {
 				await axios.post(`${process.env.VUE_APP_API_URL}/new-words`, request);
 				// todo: перевод
 				successHandler('Слово успешно добавлено');
 				getWordsList();
-			} catch (error) {
-				errorHandler(error);
-			}
+			});
 		}
 
 		// todo: есть какой-то плавающий баг с этой функцией, понять пока не могу, с чем связан.
 		// просто нормально не показывается статус иногда по successHandler
-		async function deleteWord(id) {
-			try {
+		function deleteWord(id) {
+			tryCatchWrapper(async () => {
 				await axios.delete(`${process.env.VUE_APP_API_URL}/delete-word?id=${id}`);
 				// todo: перевод
 				successHandler('Слово успешно удалено');
 				getWordsList();
-			} catch (error) {
-				errorHandler(error);
-			}
+			});
 		}
 
-		async function updateWord(request) {
-			try {
+		function updateWord(request) {
+			tryCatchWrapper(async () => {
 				await axios.patch(`${process.env.VUE_APP_API_URL}/update-word?id=${editedWord.value.id}`, request);
 				// todo: перевод
 				successHandler('Слово успешно обновлено');
 				getWordsList();
 				closeModalEditWord();
-			} catch (error) {
-				errorHandler(error);
-			}
+			});
 		}
 
 		onMounted(() => {
