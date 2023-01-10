@@ -78,55 +78,49 @@ export default {
 			visibleModalEditWord.value = false;
 		}
 
-		function getWordsList() {
-			axios
-				.get(`${process.env.VUE_APP_API_URL}/word-list`)
-				.then(response => {
-					wordList.value = response.data;
-				})
-				.catch(error => {
-					errorHandler(error);
-				});
+		async function getWordsList() {
+			try {
+				const response = await axios.get(`${process.env.VUE_APP_API_URL}/word-list`);
+				wordList.value = response.data;
+			} catch (error) {
+				errorHandler(error);
+			}
 		}
 
-		function addWordToList(request) {
-			axios
-				.post(`${process.env.VUE_APP_API_URL}/new-words`, request)
-				.then(() => {
-					// todo: перевод
-					successHandler('Слово успешно добавлено');
-					getWordsList();
-				})
-				.catch(error => {
-					errorHandler(error);
-				});
+		async function addWordToList(request) {
+			try {
+				await axios.post(`${process.env.VUE_APP_API_URL}/new-words`, request);
+				// todo: перевод
+				successHandler('Слово успешно добавлено');
+				getWordsList();
+			} catch (error) {
+				errorHandler(error);
+			}
 		}
 
-		function deleteWord(id) {
-			axios
-				.delete(`${process.env.VUE_APP_API_URL}/delete-word?id=${id}`)
-				.then(() => {
-					// todo: перевод
-					successHandler('Слово успешно удалено');
-					getWordsList();
-				})
-				.catch(error => {
-					errorHandler(error);
-				});
+		// todo: есть какой-то плавающий баг с этой функцией, понять пока не могу, с чем связан.
+		// просто нормально не показывается статус иногда по successHandler
+		async function deleteWord(id) {
+			try {
+				await axios.delete(`${process.env.VUE_APP_API_URL}/delete-word?id=${id}`);
+				// todo: перевод
+				successHandler('Слово успешно удалено');
+				getWordsList();
+			} catch (error) {
+				errorHandler(error);
+			}
 		}
 
-		function updateWord(request) {
-			axios
-				.patch(`${process.env.VUE_APP_API_URL}/update-word?id=${editedWord.value.id}`, request)
-				.then(() => {
-					// todo: перевод
-					successHandler('Слово успешно обновлено');
-					getWordsList();
-					closeModalEditWord();
-				})
-				.catch(error => {
-					errorHandler(error);
-				});
+		async function updateWord(request) {
+			try {
+				await axios.patch(`${process.env.VUE_APP_API_URL}/update-word?id=${editedWord.value.id}`, request);
+				// todo: перевод
+				successHandler('Слово успешно обновлено');
+				getWordsList();
+				closeModalEditWord();
+			} catch (error) {
+				errorHandler(error);
+			}
 		}
 
 		onMounted(() => {
