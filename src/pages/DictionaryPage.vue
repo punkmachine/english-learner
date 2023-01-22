@@ -80,6 +80,7 @@ export default {
 			visibleModalEditWord.value = false;
 		}
 
+		// todo: add axios create api
 		function getWordsList() {
 			tryCatchWrapper(async () => {
 				const response = await axios.get(`${process.env.VUE_APP_API_URL}/word-list`);
