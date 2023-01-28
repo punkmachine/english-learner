@@ -7,8 +7,9 @@
 			<InputAddWord
 				v-model.trim="ruWord"
 				@keypress.space="addRuWordToInput"
-				@click:clear="clearRuInput"
-				@clickDeleteWord="deleteWordInRuAddingList"
+				@click:clear="clearInput('ru')"
+				@clickDeleteWord="(index) => deleteWordInAddingList('ru', index)"
+				@clearWordsList="clearWordsList('ru')"
 				:wordsList="wordsRuAddingList"
 				:label="$t('dictionaryPage.writeWordInRussian')"
 				class="mb-3"
@@ -17,9 +18,10 @@
 			<InputAddWord
 				v-model.trim="enWord"
 				@keypress.space="addEnWordToInput"
-				@click:clear="clearEnInput"
+				@click:clear="clearInput('en')"
 				@keypress.enter="addWordToList"
-				@clickDeleteWord="deleteWordInEnAddingList"
+				@clickDeleteWord="(index) => deleteWordInAddingList('en', index)"
+				@clearWordsList="clearWordsList('en')"
 				:wordsList="wordsEnAddingList"
 				:label="$t('dictionaryPage.writeWordInRussian')"
 			/>
@@ -55,33 +57,34 @@ export default {
 		const wordsEnAddingList = ref([]);
 
 		function addRuWordToInput() {
-			if (ruWord.value.length > 0) {
+			if (ruWord.value.length) {
 				wordsRuAddingList.value.push(ruWord.value.trim());
 				ruWord.value = '';
 			}
 		}
 
 		function addEnWordToInput() {
-			if (enWord.value.length > 0) {
+			if (enWord.value.length) {
 				wordsEnAddingList.value.push(enWord.value.trim());
 				enWord.value = '';
 			}
 		}
 
-		function clearRuInput() {
-			ruWord.value = '';
+		function clearInput(lang) {
+			if (lang === 'ru') {
+				ruWord.value = '';
+			} else {
+				enWord.value = ''
+			}
 		}
 
-		function clearEnInput() {
-			enWord.value = '';
-		}
-
-		function deleteWordInRuAddingList(index) {
-			wordsRuAddingList.value.splice(index, 1);
-		}
-
-		function deleteWordInEnAddingList(index) {
-			wordsEnAddingList.value.splice(index, 1);
+		// <!-- TODO: удаление работает как-то странно -->
+		function deleteWordInAddingList(lang, index) {
+			if (lang === 'ru') {
+				wordsRuAddingList.value.splice(index, 1);
+			} else {
+				wordsEnAddingList.value.splice(index, 1);
+			}
 		}
 
 		function addWordToList() {
@@ -97,13 +100,22 @@ export default {
 			wordsRuAddingList.value = [];
 		}
 
+		function clearWordsList(lang) {
+			if (lang === 'ru') {
+				wordsRuAddingList.value = [];
+			} else {
+				wordsEnAddingList.value = [];
+			}
+		}
+
 		return {
 			enWord, ruWord,
 			wordsRuAddingList, wordsEnAddingList,
 			addEnWordToInput, addRuWordToInput,
-			clearRuInput, clearEnInput,
-			deleteWordInRuAddingList, deleteWordInEnAddingList,
+			clearInput,
+			deleteWordInAddingList,
 			addWordToList,
+			clearWordsList
 		}
 	}
 };

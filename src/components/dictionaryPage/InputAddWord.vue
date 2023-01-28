@@ -1,9 +1,6 @@
 <template>
 	<v-text-field clearable>
 		<template #details>
-			<!-- TODO: сделать кнопку очистки -->
-			<!-- TODO: выровнять chip слева -->
-			<!-- TODO: удаление работает как-то странно -->
 			<div class="pa-0">
 				<v-chip-group column>
 					<Chip
@@ -13,6 +10,14 @@
 					>
 						{{ word }}
 					</Chip>
+					<v-btn
+						v-show="wordsList.length"
+						variant="plain"
+						class="pr-1"
+						@click="$emit('clearWordsList')"
+					>
+						<span class="text-black"> Очистить </span>
+					</v-btn>
 				</v-chip-group>
 			</div>
 		</template>
