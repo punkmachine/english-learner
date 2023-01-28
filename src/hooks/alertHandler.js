@@ -15,6 +15,12 @@ function alertHandlerHook() {
 	}
 
 	function errorHandler(error) {
+		if (typeof error === 'string') {
+			alertHandler(error, typesAlert.error);
+
+			return;
+		}
+
 		alertHandler(error.code, typesAlert.error);
 	}
 
