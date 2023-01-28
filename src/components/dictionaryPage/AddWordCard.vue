@@ -27,7 +27,6 @@
 			/>
 		</v-card-text>
 		<v-card-actions>
-			<!-- TODO: если нажимать enter и слова пустые, запрос происходит и выдает 200 -->
 			<v-btn
 				block
 				color="primary"
@@ -44,6 +43,7 @@
 
 <script>
 import { ref } from 'vue';
+import { alertHandlerHook } from '@/hooks/alertHandler';
 import InputAddWord from '@/components/dictionaryPage/InputAddWord.vue';
 
 export default {
@@ -51,6 +51,8 @@ export default {
 		InputAddWord,
 	},
 	setup(props, { emit }) {
+		const { errorHandler } = alertHandlerHook();
+
 		const enWord = ref('');
 		const ruWord = ref('');
 		const wordsRuAddingList = ref([]);
@@ -88,6 +90,18 @@ export default {
 		}
 
 		function addWordToList() {
+			if (!wordsEnAddingList.value.length) {
+				errorHandler('Вы не заполнили слова на английском');
+
+				return;
+			}
+
+			if (!wordsRuAddingList.value.length) {
+				errorHandler('Вы не заполнили слова на русском');
+
+				return;
+			}
+
 			const request = {
 				words: [{
 					wordsEn: wordsEnAddingList.value,
