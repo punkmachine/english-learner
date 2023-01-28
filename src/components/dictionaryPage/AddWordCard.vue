@@ -89,6 +89,7 @@ export default {
 			}
 		}
 
+		// todo: перевод ошибок валидации
 		function addWordToList() {
 			if (!wordsEnAddingList.value.length) {
 				errorHandler('Вы не заполнили слова на английском');
