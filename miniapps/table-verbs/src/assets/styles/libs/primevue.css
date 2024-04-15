@@ -1,0 +1,28 @@
+@layer tailwind-base, primevue, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+@layer primevue {
+  .p-inputtext {
+    @apply w-full;
+  }
+
+  .p-card-title {
+    @apply text-center !font-medium !text-xl !mb-0;
+  }
+
+  .p-card-content {
+    @apply text-center text-lg;
+  }
+
+  .p-card .p-card-footer {
+    @apply !pt-0;
+  }
+}
