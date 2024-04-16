@@ -1,82 +1,43 @@
 <template>
   <div>
-      <h2 class="text-center text-xl font-bold mb-2">Тестирование таблички</h2>
+    <h2 class="text-center text-xl font-bold mb-2">Тестирование таблички</h2>
 
-      <Card class="mb-6">
-        <template #content>
-          <div class="flex flex-col gap-2 text-center mb-4">
-            <p>Переведите текст:</p>
-            <p class="text-xl">
-              {{ ruText }}
-            </p>
-          </div>
-
-          <div class="w-full">
-            <InputText
-              v-model="enText"
-              ref="inputRef"
-              placeholder="Ваш текст..."
-              autofocus
-              class="p-inputtext-lg block"
-            />
-
-            <Message
-              v-if="statusWord"
-              :severity="statusWord"
-              :closable="false"
-            >
-              {{ statusWord === 'success' ? 'Правильно' : `${errorWord}` }}
-            </Message>
-          </div>
-        </template>
-
-        <template #footer>
-          <Button
-            label="Проверить"
-            class="w-full"
-            @click="sendWord"
-          />
-        </template>
-      </Card>
-
-      <div>
-        <h2 class="text-center text-xl font-bold mb-2">Статистика</h2>
-
-        <div class="grid grid-cols-2 gap-4">
-          <Card>
-            <template #title>
-              Осталось
-            </template>
-            <template #content>
-              <h3>{{ remaining }}</h3>
-            </template>
-          </Card>
-          <Card>
-            <template #title>
-              Пройдено
-            </template>
-            <template #content>
-              <h3>{{ completed }}</h3>
-            </template>
-          </Card>
-          <Card>
-            <template #title>
-              Успешно
-            </template>
-            <template #content>
-              <h3>{{ successful }}</h3>
-            </template>
-          </Card>
-          <Card>
-            <template #title>
-              Провалено
-            </template>
-            <template #content>
-              <h3>{{ failed }}</h3>
-            </template>
-          </Card>
+    <Card class="mb-6">
+      <template #content>
+        <div class="flex flex-col gap-2 text-center mb-4">
+          <p>Переведите текст:</p>
+          <p class="text-xl">
+            {{ ruText }}
+          </p>
         </div>
-      </div>
+
+        <div class="w-full">
+          <InputText
+            v-model="enText"
+            ref="inputRef"
+            placeholder="Ваш текст..."
+            autofocus
+            class="p-inputtext-lg block"
+          />
+
+          <Message
+            v-if="statusWord"
+            :severity="statusWord"
+            :closable="false"
+          >
+            {{ statusWord === 'success' ? 'Правильно' : `${errorWord}` }}
+          </Message>
+        </div>
+      </template>
+
+      <template #footer>
+        <Button
+          label="Проверить"
+          class="w-full"
+          @click="sendWord"
+        />
+      </template>
+    </Card>
   </div>
 </template>
 
@@ -89,9 +50,10 @@ import Button from 'primevue/button';
 import Card from 'primevue/card';
 import Message from 'primevue/message';
 
-const chunkCounts = 2;
+let chunkCounts = 2;
 let finishedChunks = +(localStorage.getItem('finished-chunks') || 0);
 let currentChunk = finishedChunks + 1;
+
 let timer: any = null;
 
 const inputRef = ref();
@@ -110,6 +72,8 @@ const successful = ref(+(localStorage.getItem('successful-words') || 0)); // у�
 const failed = ref(+(localStorage.getItem('failed-words') || 0)); // провалено
 
 const idsFinishedWord = ref<any[]>(JSON.parse(localStorage.getItem('ids-finished-word') || '[]'));
+
+const tagsList = ref<any[]>([]);
 
 watch(focused, () => {
   if (!focused.value) {
@@ -232,7 +196,6 @@ const loadJsonData = async () => {
       wordsData.push(...filteredData);
 
       ruText.value = wordsData[0].ru;
-      remaining.value = wordsData.length;
     } else {
       throw new Error('Все чанки закончились');
     }
@@ -241,7 +204,34 @@ const loadJsonData = async () => {
   }
 };
 
+const loadMainData = async () => {
+  try {
+    const response = await fetch(`./data/main.json`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data: any = await response.json();
+
+    chunkCounts = data.countChunks;
+    remaining.value = data.countWords;
+    localStorage.setItem('remaining-words', remaining.value.toString());
+
+    for (let key in data.tags) {
+      tagsList.value.push({
+        key,
+        value: data.tags[key],
+        isSelect: true,
+      });
+    }
+  } catch (e) {
+    console.error("Ошибка загрузки JSON файла:", e);
+  }
+}
+
 onMounted(() => {
+  loadMainData();
   loadJsonData();
 });
 </script>
