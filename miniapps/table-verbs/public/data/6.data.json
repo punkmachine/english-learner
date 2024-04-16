@@ -1,0 +1,902 @@
+[
+  {
+    "id": 61,
+    "ru": "я не живу",
+    "en": "I do not live",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 584,
+    "ru": "ты не будешь смотреть.",
+    "en": "You will not look",
+    "tags": [
+      "future",
+      "negative"
+    ]
+  },
+  {
+    "id": 97,
+    "ru": "я не буду жить",
+    "en": "I will not live",
+    "tags": [
+      "future",
+      "negative"
+    ]
+  },
+  {
+    "id": 374,
+    "ru": "начнешь ли ты?",
+    "en": "Will you start?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 36,
+    "ru": "любила ли она?",
+    "en": "Did she love?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 375,
+    "ru": "начнем ли мы?",
+    "en": "Will we start?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 348,
+    "ru": "она начала.",
+    "en": "She started",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 359,
+    "ru": "начал ли он?",
+    "en": "Did he start?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 633,
+    "ru": "мы вернемся.",
+    "en": "We will return",
+    "tags": [
+      "future",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 502,
+    "ru": "читают ли они?",
+    "en": "Do they read?",
+    "tags": [
+      "present",
+      "question"
+    ]
+  },
+  {
+    "id": 2,
+    "ru": "ты любишь",
+    "en": "You love",
+    "tags": [
+      "present",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 237,
+    "ru": "мы закрыли",
+    "en": "We closed",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 465,
+    "ru": "пели ли мы?",
+    "en": "Did we sing?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 627,
+    "ru": "вернулись ли мы?",
+    "en": "Did we return?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 218,
+    "ru": "ты закрываешь",
+    "en": "You close",
+    "tags": [
+      "present",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 197,
+    "ru": "открыл ли он?",
+    "en": "Did he open?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 507,
+    "ru": "мы читаем.",
+    "en": "We read",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 493,
+    "ru": "я не читаю.",
+    "en": "I do not read",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 308,
+    "ru": "ты подумаешь",
+    "en": "You will think",
+    "tags": [
+      "future",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 174,
+    "ru": "она не открывает",
+    "en": "She does not open",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 495,
+    "ru": "мы не читаем.",
+    "en": "We do not read",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 279,
+    "ru": "мы не думаем",
+    "en": "We do not think",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 166,
+    "ru": "они открывают",
+    "en": "They open",
+    "tags": [
+      "present",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 610,
+    "ru": "они вернутся?",
+    "en": "Do they return?",
+    "tags": [
+      "present",
+      "question"
+    ]
+  },
+  {
+    "id": 432,
+    "ru": "закончит ли она?",
+    "en": "Will she finish?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 364,
+    "ru": "они начнут.",
+    "en": "They will start",
+    "tags": [
+      "future",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 116,
+    "ru": "ты не работаешь",
+    "en": "You do not work",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 599,
+    "ru": "он вернется.",
+    "en": "He returns",
+    "tags": [
+      "present",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 513,
+    "ru": "мы не читали.",
+    "en": "We did not read",
+    "tags": [
+      "past",
+      "negative"
+    ]
+  },
+  {
+    "id": 44,
+    "ru": "ты не будешь любить",
+    "en": "You will not love",
+    "tags": [
+      "future",
+      "negative"
+    ]
+  },
+  {
+    "id": 514,
+    "ru": "они не читали.",
+    "en": "They did not read",
+    "tags": [
+      "past",
+      "negative"
+    ]
+  },
+  {
+    "id": 153,
+    "ru": "мы не будем работать",
+    "en": "We will not work",
+    "tags": [
+      "future",
+      "negative"
+    ]
+  },
+  {
+    "id": 294,
+    "ru": "она думала",
+    "en": "She thought",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 191,
+    "ru": "он не открыл",
+    "en": "He did not open",
+    "tags": [
+      "past",
+      "negative"
+    ]
+  },
+  {
+    "id": 92,
+    "ru": "ты будешь жить",
+    "en": "You will live",
+    "tags": [
+      "future",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 118,
+    "ru": "они не работают",
+    "en": "They do not work",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 164,
+    "ru": "ты открываешь",
+    "en": "You open",
+    "tags": [
+      "present",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 313,
+    "ru": "я не буду думать",
+    "en": "I will not think",
+    "tags": [
+      "future",
+      "negative"
+    ]
+  },
+  {
+    "id": 104,
+    "ru": "будешь ли ты жить?",
+    "en": "Will you live?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 429,
+    "ru": "закончим ли мы?",
+    "en": "Will we finish?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 315,
+    "ru": "мы не будем думать",
+    "en": "We will not think",
+    "tags": [
+      "future",
+      "negative"
+    ]
+  },
+  {
+    "id": 611,
+    "ru": "он вернется?",
+    "en": "Does he return?",
+    "tags": [
+      "present",
+      "question"
+    ]
+  },
+  {
+    "id": 110,
+    "ru": "ты работаешь",
+    "en": "You work",
+    "tags": [
+      "present",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 113,
+    "ru": "он работает",
+    "en": "He works",
+    "tags": [
+      "present",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 424,
+    "ru": "они не закончат.",
+    "en": "They will not finish",
+    "tags": [
+      "future",
+      "negative"
+    ]
+  },
+  {
+    "id": 499,
+    "ru": "читаю ли я?",
+    "en": "Do I read?",
+    "tags": [
+      "present",
+      "question"
+    ]
+  },
+  {
+    "id": 246,
+    "ru": "она не закрыла?",
+    "en": "She did not close",
+    "tags": [
+      "past",
+      "negative"
+    ]
+  },
+  {
+    "id": 399,
+    "ru": "мы закончили.",
+    "en": "We finished",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 240,
+    "ru": "она закрыла",
+    "en": "She closed",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 307,
+    "ru": "я подумаю",
+    "en": "I will think",
+    "tags": [
+      "future",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 572,
+    "ru": "а ты смотрел?",
+    "en": "Did you look?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 47,
+    "ru": "он не будет любить",
+    "en": "He will not love",
+    "tags": [
+      "future",
+      "negative"
+    ]
+  },
+  {
+    "id": 511,
+    "ru": "я не читал.",
+    "en": "I did not read",
+    "tags": [
+      "past",
+      "negative"
+    ]
+  },
+  {
+    "id": 648,
+    "ru": "вернется ли она?",
+    "en": "Will she return?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 331,
+    "ru": "я не начинаю.",
+    "en": "I do not start",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 213,
+    "ru": "откроем ли мы?",
+    "en": "Will we open?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 347,
+    "ru": "он начал.",
+    "en": "He started",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 411,
+    "ru": "мы закончили?",
+    "en": "Did we finish?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 605,
+    "ru": "он не вернется.",
+    "en": "He does not return",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 75,
+    "ru": "мы жили,",
+    "en": "We lived",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 53,
+    "ru": "будет ли он любить?",
+    "en": "Will he love?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 505,
+    "ru": "я читаю.",
+    "en": "I read",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 16,
+    "ru": "любят ли они?",
+    "en": "Do they love?",
+    "tags": [
+      "present",
+      "question"
+    ]
+  },
+  {
+    "id": 190,
+    "ru": "они не открывали",
+    "en": "They did not open",
+    "tags": [
+      "past",
+      "negative"
+    ]
+  },
+  {
+    "id": 32,
+    "ru": "любил ли ты?",
+    "en": "Did you love?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 133,
+    "ru": "я не работал",
+    "en": "I did not work",
+    "tags": [
+      "past",
+      "negative"
+    ]
+  },
+  {
+    "id": 239,
+    "ru": "он закрыл",
+    "en": "He closed",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 343,
+    "ru": "я начал.",
+    "en": "I started",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 512,
+    "ru": "вы не читали.",
+    "en": "You did not read",
+    "tags": [
+      "past",
+      "negative"
+    ]
+  },
+  {
+    "id": 144,
+    "ru": "работала ли она?",
+    "en": "Did she work?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 440,
+    "ru": "ты не поешь.",
+    "en": "You do not sing",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 356,
+    "ru": "начал ли ты?",
+    "en": "Did you start?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 78,
+    "ru": "она жила,",
+    "en": "She lived",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 404,
+    "ru": "ты не закончил.",
+    "en": "You did not finish",
+    "tags": [
+      "past",
+      "negative"
+    ]
+  },
+  {
+    "id": 262,
+    "ru": "они не закроются",
+    "en": "They will not close",
+    "tags": [
+      "future",
+      "negative"
+    ]
+  },
+  {
+    "id": 107,
+    "ru": "будет ли он жить?",
+    "en": "Will he live?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 448,
+    "ru": "поют ли они?",
+    "en": "Do they sing?",
+    "tags": [
+      "present",
+      "question"
+    ]
+  },
+  {
+    "id": 386,
+    "ru": "ты не заканчиваешь.",
+    "en": "You do not finish",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 276,
+    "ru": "она думает",
+    "en": "She thinks",
+    "tags": [
+      "present",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 594,
+    "ru": "будет ли она смотреть?",
+    "en": "Will she look?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 318,
+    "ru": "она не будет думать",
+    "en": "She will not think",
+    "tags": [
+      "future",
+      "negative"
+    ]
+  },
+  {
+    "id": 175,
+    "ru": "я открываю?",
+    "en": "Do I open?",
+    "tags": [
+      "present",
+      "question"
+    ]
+  },
+  {
+    "id": 22,
+    "ru": "они любили",
+    "en": "They loved",
+    "tags": [
+      "past",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 579,
+    "ru": "мы посмотрим.",
+    "en": "We will look",
+    "tags": [
+      "future",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 83,
+    "ru": "он не жил,",
+    "en": "He did not live",
+    "tags": [
+      "past",
+      "negative"
+    ]
+  },
+  {
+    "id": 430,
+    "ru": "закончат ли они?",
+    "en": "Will they finish?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 178,
+    "ru": "они открываются?",
+    "en": "Do they open?",
+    "tags": [
+      "present",
+      "question"
+    ]
+  },
+  {
+    "id": 582,
+    "ru": "она посмотрит.",
+    "en": "She will look",
+    "tags": [
+      "future",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 81,
+    "ru": "мы не жили,",
+    "en": "We did not live",
+    "tags": [
+      "past",
+      "negative"
+    ]
+  },
+  {
+    "id": 31,
+    "ru": "любил ли я?",
+    "en": "Did I love?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 414,
+    "ru": "закончила ли она?",
+    "en": "Did she finish?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 485,
+    "ru": "споет ли он?",
+    "en": "Will he sing?",
+    "tags": [
+      "future",
+      "question"
+    ]
+  },
+  {
+    "id": 148,
+    "ru": "они будут работать",
+    "en": "They will work",
+    "tags": [
+      "future",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 247,
+    "ru": "я закрыл?",
+    "en": "Did I close?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 196,
+    "ru": "открыли ли они?",
+    "en": "Did they open?",
+    "tags": [
+      "past",
+      "question"
+    ]
+  },
+  {
+    "id": 332,
+    "ru": "ты не начинаешь.",
+    "en": "You do not start",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  },
+  {
+    "id": 596,
+    "ru": "ты вернешься.",
+    "en": "You return",
+    "tags": [
+      "present",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 556,
+    "ru": "смотрят ли они?",
+    "en": "Do they look?",
+    "tags": [
+      "present",
+      "question"
+    ]
+  },
+  {
+    "id": 436,
+    "ru": "они поют.",
+    "en": "They sing",
+    "tags": [
+      "present",
+      "affirmative"
+    ]
+  },
+  {
+    "id": 603,
+    "ru": "мы не вернемся.",
+    "en": "We do not return",
+    "tags": [
+      "present",
+      "negative"
+    ]
+  }
+]

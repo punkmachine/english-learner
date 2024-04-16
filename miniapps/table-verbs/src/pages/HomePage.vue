@@ -224,7 +224,7 @@ function sendWord() {
 const loadJsonData = async () => {
   try {
     if (chunkCounts >= currentChunk) {
-      const fileName = `${currentChunk.toString().padStart(2, '0')}.data.json`;
+      const fileName = `${currentChunk}.data.json`;
 
       const response = await fetch(`./data/${fileName}`);
 

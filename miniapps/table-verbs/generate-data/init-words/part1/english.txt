@@ -1,162 +1,648 @@
-Will I love?
-Will You love?
-Will We love?
-Will They love?
-Will She loves?
-Will He loves?
-I will love
-You will love
-We will love
-They will love
-She will love
-He will love
-I will not love
-You will not love
-We will not love
-They will not love
-She will not love
-He will not love
-Do I love?
-Do You love?
-Do We love?
-Do They love?
-Does She loves?
-Does He loves?
-I love
-You love
-We love
-They love
-She loves
-He loves
-I don't love
-You don't love
-We don't love
-They don't love
-She doesn't love
-He doesn't love
-Did I love?
-Did You love?
-Did We love?
-Did They love?
-Did She loves?
-Did He loves?
-I loved
-You loved
-We loved
-They loved
-She loved
-He loved
-I did not love
-You did not love
-We did not love
-They did not love
-She did not love
-He did not love
-I will work
-You will work
-We will work
-They will work
-She will work
-He will work
-I will not work
-You will not work
-We will not work
-They will not work
-She will not work
-He will not work
-Will I work?
-Will you work?
-Will we work?
-Will they work?
-Will she work?
-Will he work?
-I work
-You work
-We work
-They work
-She works
-He works
-I don't work
-You don't work
-We don't work
-They don't work
-She doesn't work
-He doesn't work
-Do I work?
-Do you work?
-Do we work?
-Do they work?
-Does she work?
-Does he work?
-I worked
-You worked
-We worked
-They worked
-She worked
-He worked
-I did not work
-You did not work
-We did not work
-They did not work
-She did not work
-He did not work
-Did I work?
-Did you work?
-Did we work?
-Did they work?
-Did she work?
-Did he work?
-Will I live?
-Will You live?
-Will We live?
-Will They live?
-Will She live?
-Will He live?
-I will live
-You will live
-We will live
-They will live
-She will live
-He will live
-I will not live
-You will not live
-We will not live
-They will not live
-She will not live
-He will not live
-Do I live?
-Do You live?
-Do We live?
-Do They live?
-Does She live?
-Does He live?
-I live
-You live
-We live
-They live
-She lives
-He lives
-I don't live
-You don't live
-We don't live
-They don't live
-She doesn't live
-He doesn't live
-Did I live?
-Did You live?
-Did We live?
-Did They live?
-Did She live?
-Did He live?
-I lived
-You lived
-We lived
-They lived
-She lived
-He lived
-I did not live
-You did not live
-We did not live
-They did not live
-She did not live
-He did not live
+[Present][Affirmative] I love
+[Present][Affirmative] You love
+[Present][Affirmative] We love
+[Present][Affirmative] They love
+[Present][Affirmative] He loves
+[Present][Affirmative] She loves
+[Present][Negative] I do not love
+[Present][Negative] You do not love
+[Present][Negative] We do not love
+[Present][Negative] They do not love
+[Present][Negative] He does not love
+[Present][Negative] She does not love
+[Present][Question] Do I love?
+[Present][Question] Do you love?
+[Present][Question] Do we love?
+[Present][Question] Do they love?
+[Present][Question] Does he love?
+[Present][Question] Does she love?
+[Past][Affirmative] I loved
+[Past][Affirmative] You loved
+[Past][Affirmative] We loved
+[Past][Affirmative] They loved
+[Past][Affirmative] He loved
+[Past][Affirmative] She loved
+[Past][Negative] I did not love
+[Past][Negative] You did not love
+[Past][Negative] We did not love
+[Past][Negative] They did not love
+[Past][Negative] He did not love
+[Past][Negative] She did not love
+[Past][Question] Did I love?
+[Past][Question] Did you love?
+[Past][Question] Did we love?
+[Past][Question] Did they love?
+[Past][Question] Did he love?
+[Past][Question] Did she love?
+[Future][Affirmative] I will love
+[Future][Affirmative] You will love
+[Future][Affirmative] We will love
+[Future][Affirmative] They will love
+[Future][Affirmative] He will love
+[Future][Affirmative] She will love
+[Future][Negative] I will not love
+[Future][Negative] You will not love
+[Future][Negative] We will not love
+[Future][Negative] They will not love
+[Future][Negative] He will not love
+[Future][Negative] She will not love
+[Future][Question] Will I love?
+[Future][Question] Will you love?
+[Future][Question] Will we love?
+[Future][Question] Will they love?
+[Future][Question] Will he love?
+[Future][Question] Will she love?
+[Present][Affirmative] I live
+[Present][Affirmative] You live
+[Present][Affirmative] We live
+[Present][Affirmative] They live
+[Present][Affirmative] He lives
+[Present][Affirmative] She lives
+[Present][Negative] I do not live
+[Present][Negative] You do not live
+[Present][Negative] We do not live
+[Present][Negative] They do not live
+[Present][Negative] He does not live
+[Present][Negative] She does not live
+[Present][Question] Do I live?
+[Present][Question] Do you live?
+[Present][Question] Do we live?
+[Present][Question] Do they live?
+[Present][Question] Does he live?
+[Present][Question] Does she live?
+[Past][Affirmative] I lived
+[Past][Affirmative] You lived
+[Past][Affirmative] We lived
+[Past][Affirmative] They lived
+[Past][Affirmative] He lived
+[Past][Affirmative] She lived
+[Past][Negative] I did not live
+[Past][Negative] You did not live
+[Past][Negative] We did not live
+[Past][Negative] They did not live
+[Past][Negative] He did not live
+[Past][Negative] She did not live
+[Past][Question] Did I live?
+[Past][Question] Did you live?
+[Past][Question] Did we live?
+[Past][Question] Did they live?
+[Past][Question] Did he live?
+[Past][Question] Did she live?
+[Future][Affirmative] I will live
+[Future][Affirmative] You will live
+[Future][Affirmative] We will live
+[Future][Affirmative] They will live
+[Future][Affirmative] He will live
+[Future][Affirmative] She will live
+[Future][Negative] I will not live
+[Future][Negative] You will not live
+[Future][Negative] We will not live
+[Future][Negative] They will not live
+[Future][Negative] He will not live
+[Future][Negative] She will not live
+[Future][Question] Will I live?
+[Future][Question] Will you live?
+[Future][Question] Will we live?
+[Future][Question] Will they live?
+[Future][Question] Will he live?
+[Future][Question] Will she live?
+[Present][Affirmative] I work
+[Present][Affirmative] You work
+[Present][Affirmative] We work
+[Present][Affirmative] They work
+[Present][Affirmative] He works
+[Present][Affirmative] She works
+[Present][Negative] I do not work
+[Present][Negative] You do not work
+[Present][Negative] We do not work
+[Present][Negative] They do not work
+[Present][Negative] He does not work
+[Present][Negative] She does not work
+[Present][Question] Do I work?
+[Present][Question] Do you work?
+[Present][Question] Do we work?
+[Present][Question] Do they work?
+[Present][Question] Does he work?
+[Present][Question] Does she work?
+[Past][Affirmative] I worked
+[Past][Affirmative] You worked
+[Past][Affirmative] We worked
+[Past][Affirmative] They worked
+[Past][Affirmative] He worked
+[Past][Affirmative] She worked
+[Past][Negative] I did not work
+[Past][Negative] You did not work
+[Past][Negative] We did not work
+[Past][Negative] They did not work
+[Past][Negative] He did not work
+[Past][Negative] She did not work
+[Past][Question] Did I work?
+[Past][Question] Did you work?
+[Past][Question] Did we work?
+[Past][Question] Did they work?
+[Past][Question] Did he work?
+[Past][Question] Did she work?
+[Future][Affirmative] I will work
+[Future][Affirmative] You will work
+[Future][Affirmative] We will work
+[Future][Affirmative] They will work
+[Future][Affirmative] He will work
+[Future][Affirmative] She will work
+[Future][Negative] I will not work
+[Future][Negative] You will not work
+[Future][Negative] We will not work
+[Future][Negative] They will not work
+[Future][Negative] He will not work
+[Future][Negative] She will not work
+[Future][Question] Will I work?
+[Future][Question] Will you work?
+[Future][Question] Will we work?
+[Future][Question] Will they work?
+[Future][Question] Will he work?
+[Future][Question] Will she work?
+[Present][Affirmative] I open
+[Present][Affirmative] You open
+[Present][Affirmative] We open
+[Present][Affirmative] They open
+[Present][Affirmative] He opens
+[Present][Affirmative] She opens
+[Present][Negative] I do not open
+[Present][Negative] You do not open
+[Present][Negative] We do not open
+[Present][Negative] They do not open
+[Present][Negative] He does not open
+[Present][Negative] She does not open
+[Present][Question] Do I open?
+[Present][Question] Do you open?
+[Present][Question] Do we open?
+[Present][Question] Do they open?
+[Present][Question] Does he open?
+[Present][Question] Does she open?
+[Past][Affirmative] I opened
+[Past][Affirmative] You opened
+[Past][Affirmative] We opened
+[Past][Affirmative] They opened
+[Past][Affirmative] He opened
+[Past][Affirmative] She opened
+[Past][Negative] I did not open
+[Past][Negative] You did not open
+[Past][Negative] We did not open
+[Past][Negative] They did not open
+[Past][Negative] He did not open
+[Past][Negative] She did not open
+[Past][Question] Did I open?
+[Past][Question] Did you open?
+[Past][Question] Did we open?
+[Past][Question] Did they open?
+[Past][Question] Did he open?
+[Past][Question] Did she open?
+[Future][Affirmative] I will open
+[Future][Affirmative] You will open
+[Future][Affirmative] We will open
+[Future][Affirmative] They will open
+[Future][Affirmative] He will open
+[Future][Affirmative] She will open
+[Future][Negative] I will not open
+[Future][Negative] You will not open
+[Future][Negative] We will not open
+[Future][Negative] They will not open
+[Future][Negative] He will not open
+[Future][Negative] She will not open
+[Future][Question] Will I open?
+[Future][Question] Will you open?
+[Future][Question] Will we open?
+[Future][Question] Will they open?
+[Future][Question] Will he open?
+[Future][Question] Will she open?
+[Present][Affirmative] I close
+[Present][Affirmative] You close
+[Present][Affirmative] We close
+[Present][Affirmative] They close
+[Present][Affirmative] He closes
+[Present][Affirmative] She closes
+[Present][Negative] I do not close
+[Present][Negative] You do not close
+[Present][Negative] We do not close
+[Present][Negative] They do not close
+[Present][Negative] He does not close
+[Present][Negative] She does not close
+[Present][Question] Do I close?
+[Present][Question] Do you close?
+[Present][Question] Do we close?
+[Present][Question] Do they close?
+[Present][Question] Does he close?
+[Present][Question] Does she close?
+[Past][Affirmative] I closed
+[Past][Affirmative] You closed
+[Past][Affirmative] We closed
+[Past][Affirmative] They closed
+[Past][Affirmative] He closed
+[Past][Affirmative] She closed
+[Past][Negative] I did not close
+[Past][Negative] You did not close
+[Past][Negative] We did not close
+[Past][Negative] They did not close
+[Past][Negative] He did not close
+[Past][Negative] She did not close
+[Past][Question] Did I close?
+[Past][Question] Did you close?
+[Past][Question] Did we close?
+[Past][Question] Did they close?
+[Past][Question] Did he close?
+[Past][Question] Did she close?
+[Future][Affirmative] I will close
+[Future][Affirmative] You will close
+[Future][Affirmative] We will close
+[Future][Affirmative] They will close
+[Future][Affirmative] He will close
+[Future][Affirmative] She will close
+[Future][Negative] I will not close
+[Future][Negative] You will not close
+[Future][Negative] We will not close
+[Future][Negative] They will not close
+[Future][Negative] He will not close
+[Future][Negative] She will not close
+[Future][Question] Will I close?
+[Future][Question] Will you close?
+[Future][Question] Will we close?
+[Future][Question] Will they close?
+[Future][Question] Will he close?
+[Future][Question] Will she close?
+[Present][Affirmative] I think
+[Present][Affirmative] You think
+[Present][Affirmative] We think
+[Present][Affirmative] They think
+[Present][Affirmative] He thinks
+[Present][Affirmative] She thinks
+[Present][Negative] I do not think
+[Present][Negative] You do not think
+[Present][Negative] We do not think
+[Present][Negative] They do not think
+[Present][Negative] He does not think
+[Present][Negative] She does not think
+[Present][Question] Do I think?
+[Present][Question] Do you think?
+[Present][Question] Do we think?
+[Present][Question] Do they think?
+[Present][Question] Does he think?
+[Present][Question] Does she think?
+[Past][Affirmative] I thought
+[Past][Affirmative] You thought
+[Past][Affirmative] We thought
+[Past][Affirmative] They thought
+[Past][Affirmative] He thought
+[Past][Affirmative] She thought
+[Past][Negative] I did not think
+[Past][Negative] You did not think
+[Past][Negative] We did not think
+[Past][Negative] They did not think
+[Past][Negative] He did not think
+[Past][Negative] She did not think
+[Past][Question] Did I think?
+[Past][Question] Did you think?
+[Past][Question] Did we think?
+[Past][Question] Did they think?
+[Past][Question] Did he think?
+[Past][Question] Did she think?
+[Future][Affirmative] I will think
+[Future][Affirmative] You will think
+[Future][Affirmative] We will think
+[Future][Affirmative] They will think
+[Future][Affirmative] He will think
+[Future][Affirmative] She will think
+[Future][Negative] I will not think
+[Future][Negative] You will not think
+[Future][Negative] We will not think
+[Future][Negative] They will not think
+[Future][Negative] He will not think
+[Future][Negative] She will not think
+[Future][Question] Will I think?
+[Future][Question] Will you think?
+[Future][Question] Will we think?
+[Future][Question] Will they think?
+[Future][Question] Will he think?
+[Future][Question] Will she think?
+[Present][Affirmative] I start
+[Present][Affirmative] You start
+[Present][Affirmative] We start
+[Present][Affirmative] They start
+[Present][Affirmative] He starts
+[Present][Affirmative] She starts
+[Present][Negative] I do not start
+[Present][Negative] You do not start
+[Present][Negative] We do not start
+[Present][Negative] They do not start
+[Present][Negative] He does not start
+[Present][Negative] She does not start
+[Present][Question] Do I start?
+[Present][Question] Do you start?
+[Present][Question] Do we start?
+[Present][Question] Do they start?
+[Present][Question] Does he start?
+[Present][Question] Does she start?
+[Past][Affirmative] I started
+[Past][Affirmative] You started
+[Past][Affirmative] We started
+[Past][Affirmative] They started
+[Past][Affirmative] He started
+[Past][Affirmative] She started
+[Past][Negative] I did not start
+[Past][Negative] You did not start
+[Past][Negative] We did not start
+[Past][Negative] They did not start
+[Past][Negative] He did not start
+[Past][Negative] She did not start
+[Past][Question] Did I start?
+[Past][Question] Did you start?
+[Past][Question] Did we start?
+[Past][Question] Did they start?
+[Past][Question] Did he start?
+[Past][Question] Did she start?
+[Future][Affirmative] I will start
+[Future][Affirmative] You will start
+[Future][Affirmative] We will start
+[Future][Affirmative] They will start
+[Future][Affirmative] He will start
+[Future][Affirmative] She will start
+[Future][Negative] I will not start
+[Future][Negative] You will not start
+[Future][Negative] We will not start
+[Future][Negative] They will not start
+[Future][Negative] He will not start
+[Future][Negative] She will not start
+[Future][Question] Will I start?
+[Future][Question] Will you start?
+[Future][Question] Will we start?
+[Future][Question] Will they start?
+[Future][Question] Will he start?
+[Future][Question] Will she start?
+[Present][Affirmative] I finish
+[Present][Affirmative] You finish
+[Present][Affirmative] We finish
+[Present][Affirmative] They finish
+[Present][Affirmative] He finishes
+[Present][Affirmative] She finishes
+[Present][Negative] I do not finish
+[Present][Negative] You do not finish
+[Present][Negative] We do not finish
+[Present][Negative] They do not finish
+[Present][Negative] He does not finish
+[Present][Negative] She does not finish
+[Present][Question] Do I finish?
+[Present][Question] Do you finish?
+[Present][Question] Do we finish?
+[Present][Question] Do they finish?
+[Present][Question] Does he finish?
+[Present][Question] Does she finish?
+[Past][Affirmative] I finished
+[Past][Affirmative] You finished
+[Past][Affirmative] We finished
+[Past][Affirmative] They finished
+[Past][Affirmative] He finished
+[Past][Affirmative] She finished
+[Past][Negative] I did not finish
+[Past][Negative] You did not finish
+[Past][Negative] We did not finish
+[Past][Negative] They did not finish
+[Past][Negative] He did not finish
+[Past][Negative] She did not finish
+[Past][Question] Did I finish?
+[Past][Question] Did you finish?
+[Past][Question] Did we finish?
+[Past][Question] Did they finish?
+[Past][Question] Did he finish?
+[Past][Question] Did she finish?
+[Future][Affirmative] I will finish
+[Future][Affirmative] You will finish
+[Future][Affirmative] We will finish
+[Future][Affirmative] They will finish
+[Future][Affirmative] He will finish
+[Future][Affirmative] She will finish
+[Future][Negative] I will not finish
+[Future][Negative] You will not finish
+[Future][Negative] We will not finish
+[Future][Negative] They will not finish
+[Future][Negative] He will not finish
+[Future][Negative] She will not finish
+[Future][Question] Will I finish?
+[Future][Question] Will you finish?
+[Future][Question] Will we finish?
+[Future][Question] Will they finish?
+[Future][Question] Will he finish?
+[Future][Question] Will she finish?
+[Present][Affirmative] I sing
+[Present][Affirmative] You sing
+[Present][Affirmative] We sing
+[Present][Affirmative] They sing
+[Present][Affirmative] He sings
+[Present][Affirmative] She sings
+[Present][Negative] I do not sing
+[Present][Negative] You do not sing
+[Present][Negative] We do not sing
+[Present][Negative] They do not sing
+[Present][Negative] He does not sing
+[Present][Negative] She does not sing
+[Present][Question] Do I sing?
+[Present][Question] Do you sing?
+[Present][Question] Do we sing?
+[Present][Question] Do they sing?
+[Present][Question] Does he sing?
+[Present][Question] Does she sing?
+[Past][Affirmative] I sang
+[Past][Affirmative] You sang
+[Past][Affirmative] We sang
+[Past][Affirmative] They sang
+[Past][Affirmative] He sang
+[Past][Affirmative] She sang
+[Past][Negative] I did not sing
+[Past][Negative] You did not sing
+[Past][Negative] We did not sing
+[Past][Negative] They did not sing
+[Past][Negative] He did not sing
+[Past][Negative] She did not sing
+[Past][Question] Did I sing?
+[Past][Question] Did you sing?
+[Past][Question] Did we sing?
+[Past][Question] Did they sing?
+[Past][Question] Did he sing?
+[Past][Question] Did she sing?
+[Future][Affirmative] I will sing
+[Future][Affirmative] You will sing
+[Future][Affirmative] We will sing
+[Future][Affirmative] They will sing
+[Future][Affirmative] He will sing
+[Future][Affirmative] She will sing
+[Future][Negative] I will not sing
+[Future][Negative] You will not sing
+[Future][Negative] We will not sing
+[Future][Negative] They will not sing
+[Future][Negative] He will not sing
+[Future][Negative] She will not sing
+[Future][Question] Will I sing?
+[Future][Question] Will you sing?
+[Future][Question] Will we sing?
+[Future][Question] Will they sing?
+[Future][Question] Will he sing?
+[Future][Question] Will she sing?
+[Present][Affirmative] I read
+[Present][Affirmative] You read
+[Present][Affirmative] We read
+[Present][Affirmative] They read
+[Present][Affirmative] He reads
+[Present][Affirmative] She reads
+[Present][Negative] I do not read
+[Present][Negative] You do not read
+[Present][Negative] We do not read
+[Present][Negative] They do not read
+[Present][Negative] He does not read
+[Present][Negative] She does not read
+[Present][Question] Do I read?
+[Present][Question] Do you read?
+[Present][Question] Do we read?
+[Present][Question] Do they read?
+[Present][Question] Does he read?
+[Present][Question] Does she read?
+[Past][Affirmative] I read
+[Past][Affirmative] You read
+[Past][Affirmative] We read
+[Past][Affirmative] They read
+[Past][Affirmative] He read
+[Past][Affirmative] She read
+[Past][Negative] I did not read
+[Past][Negative] You did not read
+[Past][Negative] We did not read
+[Past][Negative] They did not read
+[Past][Negative] He did not read
+[Past][Negative] She did not read
+[Past][Question] Did I read?
+[Past][Question] Did you read?
+[Past][Question] Did we read?
+[Past][Question] Did they read?
+[Past][Question] Did he read?
+[Past][Question] Did she read?
+[Future][Affirmative] I will read
+[Future][Affirmative] You will read
+[Future][Affirmative] We will read
+[Future][Affirmative] They will read
+[Future][Affirmative] He will read
+[Future][Affirmative] She will read
+[Future][Negative] I will not read
+[Future][Negative] You will not read
+[Future][Negative] We will not read
+[Future][Negative] They will not read
+[Future][Negative] He will not read
+[Future][Negative] She will not read
+[Future][Question] Will I read?
+[Future][Question] Will you read?
+[Future][Question] Will we read?
+[Future][Question] Will they read?
+[Future][Question] Will he read?
+[Future][Question] Will she read?
+[Present][Affirmative] I look
+[Present][Affirmative] You look
+[Present][Affirmative] We look
+[Present][Affirmative] They look
+[Present][Affirmative] He looks
+[Present][Affirmative] She looks
+[Present][Negative] I do not look
+[Present][Negative] You do not look
+[Present][Negative] We do not look
+[Present][Negative] They do not look
+[Present][Negative] He does not look
+[Present][Negative] She does not look
+[Present][Question] Do I look?
+[Present][Question] Do you look?
+[Present][Question] Do we look?
+[Present][Question] Do they look?
+[Present][Question] Does he look?
+[Present][Question] Does she look?
+[Past][Affirmative] I looked
+[Past][Affirmative] You looked
+[Past][Affirmative] We looked
+[Past][Affirmative] They looked
+[Past][Affirmative] He looked
+[Past][Affirmative] She looked
+[Past][Negative] I did not look
+[Past][Negative] You did not look
+[Past][Negative] We did not look
+[Past][Negative] They did not look
+[Past][Negative] He did not look
+[Past][Negative] She did not look
+[Past][Question] Did I look?
+[Past][Question] Did you look?
+[Past][Question] Did we look?
+[Past][Question] Did they look?
+[Past][Question] Did he look?
+[Past][Question] Did she look?
+[Future][Affirmative] I will look
+[Future][Affirmative] You will look
+[Future][Affirmative] We will look
+[Future][Affirmative] They will look
+[Future][Affirmative] He will look
+[Future][Affirmative] She will look
+[Future][Negative] I will not look
+[Future][Negative] You will not look
+[Future][Negative] We will not look
+[Future][Negative] They will not look
+[Future][Negative] He will not look
+[Future][Negative] She will not look
+[Future][Question] Will I look?
+[Future][Question] Will you look?
+[Future][Question] Will we look?
+[Future][Question] Will they look?
+[Future][Question] Will he look?
+[Future][Question] Will she look?
+[Present][Affirmative] I return
+[Present][Affirmative] You return
+[Present][Affirmative] We return
+[Present][Affirmative] They return
+[Present][Affirmative] He returns
+[Present][Affirmative] She returns
+[Present][Negative] I do not return
+[Present][Negative] You do not return
+[Present][Negative] We do not return
+[Present][Negative] They do not return
+[Present][Negative] He does not return
+[Present][Negative] She does not return
+[Present][Question] Do I return?
+[Present][Question] Do you return?
+[Present][Question] Do we return?
+[Present][Question] Do they return?
+[Present][Question] Does he return?
+[Present][Question] Does she return?
+[Past][Affirmative] I returned
+[Past][Affirmative] You returned
+[Past][Affirmative] We returned
+[Past][Affirmative] They returned
+[Past][Affirmative] He returned
+[Past][Affirmative] She returned
+[Past][Negative] I did not return
+[Past][Negative] You did not return
+[Past][Negative] We did not return
+[Past][Negative] They did not return
+[Past][Negative] He did not return
+[Past][Negative] She did not return
+[Past][Question] Did I return?
+[Past][Question] Did you return?
+[Past][Question] Did we return?
+[Past][Question] Did they return?
+[Past][Question] Did he return?
+[Past][Question] Did she return?
+[Future][Affirmative] I will return
+[Future][Affirmative] You will return
+[Future][Affirmative] We will return
+[Future][Affirmative] They will return
+[Future][Affirmative] He will return
+[Future][Affirmative] She will return
+[Future][Negative] I will not return
+[Future][Negative] You will not return
+[Future][Negative] We will not return
+[Future][Negative] They will not return
+[Future][Negative] He will not return
+[Future][Negative] She will not return
+[Future][Question] Will I return?
+[Future][Question] Will you return?
+[Future][Question] Will we return?
+[Future][Question] Will they return?
+[Future][Question] Will he return?
+[Future][Question] Will she return?

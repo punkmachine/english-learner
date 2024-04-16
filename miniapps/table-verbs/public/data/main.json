@@ -1,0 +1,12 @@
+{
+  "countChunks": 7,
+  "countWords": 648,
+  "tags": {
+    "present": "Настоящее",
+    "past": "Прошлое",
+    "future": "Будущее",
+    "affirmative": "Утверждение",
+    "negative": "Отрицание",
+    "question": "Вопрос"
+  }
+}
