@@ -21,7 +21,9 @@
   "dependencies": {
     "@vueuse/core": "^10.9.0",
     "axios": "^1.5.1",
+    "lodash.shuffle": "^4.2.0",
     "pinia": "^2.1.7",
+    "primeicons": "^7.0.0",
     "primevue": "^3.51.0",
     "vite-plugin-pwa": "^0.19.8",
     "vue": "^3.4.15",

@@ -1,9 +1,5 @@
 <template>
   <div>
-    <header class="text-center px-2 py-3 text-xl font-bold shadow-lg shadow-gray-800">
-      Verb Table
-    </header>
-    <main class="p-4">
       <h2 class="text-center text-xl font-bold mb-2">Тестирование таблички</h2>
 
       <Card class="mb-6">
@@ -81,7 +77,6 @@
           </Card>
         </div>
       </div>
-    </main>
   </div>
 </template>
 
