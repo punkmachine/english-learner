@@ -25,4 +25,8 @@
   .p-card .p-card-footer {
     @apply !pt-0;
   }
+
+  .p-message .p-message-wrapper {
+    @apply !px-3 !py-4 ;
+  }
 }

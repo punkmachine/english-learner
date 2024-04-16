@@ -19,6 +19,7 @@
     "pre-push": "run-p format lint:code:fix"
   },
   "dependencies": {
+    "@vueuse/core": "^10.9.0",
     "axios": "^1.5.1",
     "pinia": "^2.1.7",
     "primevue": "^3.51.0",

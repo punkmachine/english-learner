@@ -18,9 +18,19 @@
           <div class="w-full">
             <InputText
               v-model="enText"
+              ref="inputRef"
               placeholder="Ваш текст..."
+              autofocus
               class="p-inputtext-lg block"
             />
+
+            <Message
+              v-if="statusWord"
+              :severity="statusWord"
+              :closable="false"
+            >
+              {{ statusWord === 'success' ? 'Правильно' : `${errorWord}` }}
+            </Message>
           </div>
         </template>
 
@@ -76,19 +86,28 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, reactive } from 'vue';
+import { ref, onMounted, reactive, watch } from 'vue';
+import { useFocus } from '@vueuse/core'
+
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
+import Message from 'primevue/message';
 
 const chunkCounts = 2;
 let finishedChunks = +(localStorage.getItem('finished-chunks') || 0);
 let currentChunk = finishedChunks + 1;
+let timer: any = null;
+
+const inputRef = ref();
+const { focused } = useFocus(inputRef, { initialValue: true });
 
 const wordsData = reactive<any[]>([]);
 
 const ruText = ref('');
 const enText = ref('');
+const statusWord = ref<'success' | 'error' | ''>('');
+const errorWord = ref('');
 
 const remaining = ref(+(localStorage.getItem('remaining-words') || 0)); // осталось
 const completed = ref(+(localStorage.getItem('completed-words') || 0)); // пройдено
@@ -97,46 +116,109 @@ const failed = ref(+(localStorage.getItem('failed-words') || 0)); // прова�
 
 const idsFinishedWord = ref<any[]>(JSON.parse(localStorage.getItem('ids-finished-word') || '[]'));
 
+watch(focused, () => {
+  if (!focused.value) {
+    focused.value = true;
+  }
+});
+
+function cleanString(input: string): string {
+  let lowercased = input.toLowerCase();
+  let cleaned = lowercased.replace(/[^a-z0-9а-яё]/gi, '');
+
+  return cleaned;
+}
+
+function setInitialStatusWord() {
+  errorWord.value = '';
+  statusWord.value = '';
+}
+
+function clearTimerHideMessage() {
+  if (timer) {
+    setInitialStatusWord();
+    clearTimeout(timer);
+  }
+}
+
+function setLocalStorageStatistics() {
+  localStorage.setItem('remaining-words', remaining.value.toString());
+  localStorage.setItem('completed-words', completed.value.toString());
+  localStorage.setItem('successful-words', successful.value.toString());
+  localStorage.setItem('failed-words', failed.value.toString());
+}
+
+function addWordToFinished() {
+  idsFinishedWord.value.push(wordsData[0].id);
+  localStorage.setItem('ids-finished-word', JSON.stringify(idsFinishedWord.value));
+}
+
+function compareInputAndCorrectWord() {
+  return cleanString(wordsData[0].en) === cleanString(enText.value);
+}
+
+function successStatisticIncrement() {
+  statusWord.value = 'success';
+  remaining.value -= 1;
+  completed.value += 1;
+  successful.value += 1;
+}
+
+function errorStatisticsIncrement() {
+  statusWord.value = 'error';
+  failed.value += 1;
+}
+
+function inputTextInit() {
+  wordsData.shift();
+  enText.value = '';
+}
+
+function loadNewChunk() {
+  currentChunk += 1;
+  finishedChunks += 1;
+
+  localStorage.setItem('finished-chunks', finishedChunks.toString());
+
+  loadJsonData();
+}
+
+function setErrorWord() {
+  const failedWord = JSON.parse(JSON.stringify(wordsData[0]));
+  errorWord.value = failedWord.en;
+}
+
 function sendWord() {
-  if (wordsData[0].en === enText.value) {
-    idsFinishedWord.value.push(wordsData[0].id);
-    localStorage.setItem('ids-finished-word', JSON.stringify(idsFinishedWord.value));
+  clearTimerHideMessage();
 
-    remaining.value -= 1;
-    completed.value += 1;
-    successful.value += 1;
-
-    wordsData.shift();
-    enText.value = '';
+  if (compareInputAndCorrectWord()) {
+    addWordToFinished();
+    successStatisticIncrement();
+    inputTextInit();
 
     if (wordsData.length) {
       ruText.value = wordsData[0].ru;
     } else {
       if (currentChunk < chunkCounts) {
-        currentChunk += 1;
-        finishedChunks += 1;
-
-        localStorage.setItem('finished-chunks', finishedChunks.toString());
-
-        loadJsonData();
+        loadNewChunk();
       } else {
         ruText.value = '';
       }
     }
   } else {
-    failed.value += 1;
+    errorStatisticsIncrement();
+    setErrorWord();
+    inputTextInit();
 
-    const failedWord = JSON.parse(JSON.stringify(wordsData[0]));
-    wordsData.shift();
-    enText.value = '';
-    wordsData.push(failedWord);
+    wordsData.push(errorWord.value);
     ruText.value = wordsData[0].ru;
   }
 
-  localStorage.setItem('remaining-words', remaining.value.toString());
-  localStorage.setItem('completed-words', completed.value.toString());
-  localStorage.setItem('successful-words', successful.value.toString());
-  localStorage.setItem('failed-words', failed.value.toString());
+  setLocalStorageStatistics();
+
+  timer = setTimeout(() => {
+    setInitialStatusWord();
+  }, 5000);
 }
 
 const loadJsonData = async () => {
