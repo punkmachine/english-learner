@@ -1,6 +1,20 @@
 <template>
   <div>
-    <h2 class="text-center text-xl font-bold mb-2">Тестирование таблички</h2>
+    <h2 class="text-center text-xl font-bold mb-4">Тестирование таблички</h2>
+
+    <!-- <div>
+      <p>Фильтра: </p>
+      <div class="flex flex-wrap gap-2.5 mb-4">
+        <Tag
+          v-for="tag in tagsList"
+          :key="tag.key"
+          :value="tag.value"
+          :severity="tag.isSelect ? 'success' : 'secondary'"
+          class="text-sm"
+          @click="selectTag(tag.key)"
+        />
+      </div>
+    </div> -->
 
     <Card class="mb-6">
       <template #content>
@@ -49,6 +63,7 @@ import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
 import Message from 'primevue/message';
+// import Tag from 'primevue/tag';
 
 let chunkCounts = 2;
 let finishedChunks = +(localStorage.getItem('finished-chunks') || 0);
@@ -60,6 +75,7 @@ const inputRef = ref();
 const { focused } = useFocus(inputRef, { initialValue: true });
 
 const wordsData = reactive<any[]>([]);
+// const filteredWordsData = ref<any[]>([]);
 
 const ruText = ref('');
 const enText = ref('');
@@ -73,7 +89,18 @@ const failed = ref(+(localStorage.getItem('failed-words') || 0)); // прова�
 
 const idsFinishedWord = ref<any[]>(JSON.parse(localStorage.getItem('ids-finished-word') || '[]'));
 
-const tagsList = ref<any[]>([]);
+// const tagsList = reactive<any[]>([]);
+
+// watch([tagsList, wordsData], () => {
+//   if (wordsData.length > 0) {
+//     const selectedTags = tagsList.filter(tag => tag.isSelect).map(tag => tag.key);
+//     const filteredWords = wordsData.filter(word => selectedTags.includes(word.tags[0]) && selectedTags.includes(word.tags[1]));
+
+//     if (filteredWords.length === 0) {
+//       filteredWordsData.value = [...filteredWords];
+//     }
+//   }
+// });
 
 watch(focused, () => {
   if (!focused.value) {
@@ -180,6 +207,14 @@ function sendWord() {
   }, 5000);
 }
 
+// function selectTag(key: string) {
+//   const tag = tagsList.find(tag => tag.key === key);
+
+//   if (tag) {
+//     tag.isSelect = !tag.isSelect;
+//   }
+// }
+
 const loadJsonData = async () => {
   try {
     if (chunkCounts >= currentChunk) {
@@ -218,13 +253,13 @@ const loadMainData = async () => {
     remaining.value = data.countWords;
     localStorage.setItem('remaining-words', remaining.value.toString());
 
-    for (let key in data.tags) {
-      tagsList.value.push({
-        key,
-        value: data.tags[key],
-        isSelect: true,
-      });
-    }
+    // for (let key in data.tags) {
+    //   tagsList.push({
+    //     key,
+    //     value: data.tags[key],
+    //     isSelect: true,
+    //   });
+    // }
   } catch (e) {
     console.error("Ошибка загрузки JSON файла:", e);
   }
